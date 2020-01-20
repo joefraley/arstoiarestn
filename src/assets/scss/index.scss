@@ -1,0 +1,20 @@
+/**
+ * Effra font
+ */
+@import url("https://use.typekit.net/cfp8ynq.css");
+
+/**
+ * Journi theme
+ */
+// @import "./colors";
+// @import "./variables";
+@import "~bootstrap/scss/bootstrap.scss";
+
+/**
+ * Global overwrites
+ */
+body {
+  font-family: "effra", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 16px;
+  //   background-color: $warm-gray-100;
+}
