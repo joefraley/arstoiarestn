@@ -1,11 +1,14 @@
-import React from "react";
+import React from "react"
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <p>lorem</p>
-    </div>
-  );
-};
+    let dude: any = "what"
+    dude = "lorem"
+    console.log("dude")
+    return (
+        <div className="App">
+            <p>{dude}</p>
+        </div>
+    )
+}
 
-export default App;
+export default App
