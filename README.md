@@ -7,6 +7,18 @@ yarn install
 yarn start
 ```
 
+## TODO
+
+-   [ ] Router
+-   [ ] SVG Icons w/build system
+-   [ ] Port RN Elements library
+-   [ ] Redux/Saga setup (or Apollo 🤔)
+-   [ ] GraphQL setup
+-   [ ] Cucumber tests
+-   [ ] Form validation library
+-   [ ] Tealium tagging
+-   [ ] CMS for i18n
+
 ## Terminology
 
 -   **Element**: Lorem ipsum

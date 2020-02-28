@@ -1,0 +1,142 @@
+/**
+ * Bootstrap Variables
+ * https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * Colors
+ * -----------------------------------------------------------------------------
+ */
+
+// Grayscale
+$black: #000000;
+$white: #ffffff;
+$gray-100: #f5f5f5;
+$gray-200: #e9e9ea;
+$gray-300: #d4d4d5;
+$gray-400: #a9a9ac;
+$gray-500: #939398;
+$gray-600: #69696e;
+$gray-700: #53535a;
+$gray-800: #3e3e45;
+$gray-900: #282831;
+
+// Warm Grayscale
+$warm-gray-100: #f8f7f5;
+$warm-gray-200: #f2efeb;
+$warm-gray-300: #ebe8e2;
+$warm-gray-400: #e5e0d8;
+$warm-gray-500: #dfd8cf;
+$warm-gray-600: #d8d1c5;
+$warm-gray-700: #d2c9bc;
+$warm-gray-800: #cbc1b2;
+$warm-gray-900: #c5baa9;
+
+// Colors
+$blue: #007c91;
+$blue-medium: #0fa2e6;
+$blue-light: #e5f1f4;
+$blue-vivid: #0e71c0;
+
+$green: #009d71;
+$green-light: #e7f4e9;
+$green-vivid: #71d239;
+
+$purple: #64009e;
+$purple-medium: #9553d0;
+$purple-vivid: #a010c9;
+
+$red: #cc1533;
+$red-medium: #f55151;
+$red-light: #feeded;
+
+$yellow: #ffab00;
+$yellow-light: #fff4df;
+
+// Theme colors
+$primary: $purple;
+$success: $green;
+$info: $blue;
+$warning: $yellow;
+$danger: $red;
+
+// Custom colors
+$colors: (
+    "green-light": $green-light,
+    "blue-light": $blue-light,
+    "blue-medium": $blue-medium,
+);
+
+// Custom theme colors
+$theme-colors: (
+    "purple": $purple,
+    "purple-vivid": $purple-vivid,
+    "yellow": $yellow,
+    "green": $green,
+    "green-light": $green-light,
+    "blue": $blue,
+    "blue-light": $blue-light,
+    "gray": $gray-500,
+    "gray-100": $gray-100,
+    "gray-200": $gray-200,
+    "gray-300": $gray-300,
+    "gray-400": $gray-400,
+    "gray-500": $gray-500,
+    "gray-600": $gray-600,
+    "gray-700": $gray-700,
+    "gray-800": $gray-800,
+    "gray-900": $gray-900,
+    "warm-gray-100": $warm-gray-100,
+    "warm-gray-200": $warm-gray-200,
+    "warm-gray-300": $warm-gray-300,
+    "warm-gray-400": $warm-gray-400,
+    "warm-gray-500": $warm-gray-500,
+    "warm-gray-600": $warm-gray-600,
+    "warm-gray-700": $warm-gray-700,
+    "warm-gray-800": $warm-gray-800,
+    "warm-gray-900": $warm-gray-900,
+);
+
+/**
+ * Typography
+ * -----------------------------------------------------------------------------
+ */
+$font-family-sans-serif: "effra", "Helvetica Neue", "Arial", sans-serif;
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+
+/**
+ * Layers (z-indices)
+ * -----------------------------------------------------------------------------
+ */
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-modal-backdrop: 1040;
+$zindex-modal: 1050;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+
+/**
+ * Other
+ * -----------------------------------------------------------------------------
+ */
+$enable-caret: false;
+$enable-transitions: false;
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1400px,
+);
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1260px,
+);

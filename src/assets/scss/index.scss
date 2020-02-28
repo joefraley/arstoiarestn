@@ -6,15 +6,13 @@
 /**
  * Journi theme
  */
-// @import "./colors";
-// @import "./variables";
+@import "./variables";
 @import "~bootstrap/scss/bootstrap.scss";
+@import "./elements";
 
 /**
  * Global overwrites
  */
-body {
-    font-family: "effra", "Helvetica Neue", "Arial", sans-serif;
-    font-size: 16px;
-    //   background-color: $warm-gray-100;
-}
+// body {
+//   background-color: $warm-gray-100;
+// }
