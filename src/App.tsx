@@ -7,55 +7,58 @@ import { Card } from "elements"
  */
 const App: React.FunctionComponent = () => {
     return (
-        <div className="App">
-            <div className="p-4">
-                {/* Text */}
-                <h1>Heading H1</h1>
-                <h2>Heading H2</h2>
-                <h3>Heading H3</h3>
-                <h4>Heading H4</h4>
-                <h5>Heading H5</h5>
-                <h6>Heading H6</h6>
-
-                {/* Cards */}
-                <div className="row">
-                    <div className="col">
-                        <Card>
-                            <h6>Title</h6>
-                            <p className="mb-0">
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Non voluptatem voluptates ut
-                                libero iusto ipsa ratione ad corporis est ullam?
-                                Impedit, cupiditate ab! Neque maxime officiis
-                                omnis quasi ipsam quia.
-                            </p>
-                        </Card>
-                    </div>
-                    <div className="col">
-                        <Card>
-                            <p className="mb-0">
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Non voluptatem voluptates ut
-                                libero iusto ipsa ratione ad corporis est ullam?
-                                Impedit, cupiditate ab! Neque maxime officiis
-                                omnis quasi ipsam quia.
-                            </p>
-                        </Card>
-                    </div>
-                    <div className="col">
-                        <Card>
-                            <p className="mb-0">
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Non voluptatem voluptates ut
-                                libero iusto ipsa ratione ad corporis est ullam?
-                                Impedit, cupiditate ab! Neque maxime officiis
-                                omnis quasi ipsam quia.
-                            </p>
-                        </Card>
+        <div className="app">
+            <div className="sidebar">
+                <h5 className="text-white">Sidebar</h5>
+            </div>
+            <div className="main">
+                <div className="bg-white p-4">
+                    <h2>
+                        Welcome back,
+                        <br />
+                        Jennifer
+                    </h2>
+                </div>
+                <div className="p-4">
+                    <div className="row">
+                        <div className="col">
+                            <Card>
+                                <p className="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Cum, iure maiores?
+                                    Molestiae libero reprehenderit, ipsam
+                                    doloribus soluta labore molestias quisquam
+                                    nisi veniam mollitia dolores quia eaque
+                                    perspiciatis accusantium vitae sed.
+                                </p>
+                            </Card>
+                        </div>
+                        <div className="col">
+                            <Card>
+                                <p className="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Cum, iure maiores?
+                                    Molestiae libero reprehenderit, ipsam
+                                    doloribus soluta labore molestias quisquam
+                                    nisi veniam mollitia dolores quia eaque
+                                    perspiciatis accusantium vitae sed.
+                                </p>
+                            </Card>
+                        </div>
+                        <div className="col">
+                            <Card>
+                                <p className="mb-0">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Cum, iure maiores?
+                                    Molestiae libero reprehenderit, ipsam
+                                    doloribus soluta labore molestias quisquam
+                                    nisi veniam mollitia dolores quia eaque
+                                    perspiciatis accusantium vitae sed.
+                                </p>
+                            </Card>
+                        </div>
                     </div>
                 </div>
-
-                {/* Buttons */}
             </div>
         </div>
     )
