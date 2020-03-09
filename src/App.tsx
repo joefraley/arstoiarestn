@@ -12,7 +12,7 @@ const App: React.FunctionComponent = () => {
                 <h5 className="text-white">Sidebar</h5>
             </div>
             <div className="main">
-                <div className="bg-white p-4">
+                <div className="bg-warm-gray-lightest p-4">
                     <h2>
                         Welcome back,
                         <br />
@@ -21,40 +21,40 @@ const App: React.FunctionComponent = () => {
                 </div>
                 <div className="p-4">
                     <div className="row">
-                        <div className="col">
+                        <div className="col my-sm">
                             <Card>
-                                <p className="mb-0">
+                                <span className="text-primary">
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Cum, iure maiores?
                                     Molestiae libero reprehenderit, ipsam
                                     doloribus soluta labore molestias quisquam
                                     nisi veniam mollitia dolores quia eaque
                                     perspiciatis accusantium vitae sed.
-                                </p>
+                                </span>
                             </Card>
                         </div>
                         <div className="col">
                             <Card>
-                                <p className="mb-0">
+                                <span className="text-secondary">
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Cum, iure maiores?
                                     Molestiae libero reprehenderit, ipsam
                                     doloribus soluta labore molestias quisquam
                                     nisi veniam mollitia dolores quia eaque
                                     perspiciatis accusantium vitae sed.
-                                </p>
+                                </span>
                             </Card>
                         </div>
                         <div className="col">
                             <Card>
-                                <p className="mb-0">
+                                <span className="text-link">
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Cum, iure maiores?
                                     Molestiae libero reprehenderit, ipsam
                                     doloribus soluta labore molestias quisquam
                                     nisi veniam mollitia dolores quia eaque
                                     perspiciatis accusantium vitae sed.
-                                </p>
+                                </span>
                             </Card>
                         </div>
                     </div>

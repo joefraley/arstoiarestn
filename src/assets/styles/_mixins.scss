@@ -1,0 +1,12 @@
+/**
+ * Mixins
+ * -----------------------------------------------------------------------------
+ */
+
+@mixin card-shadow {
+    box-shadow: 0px 1px 3px rgba($gray-900, 0.13);
+}
+
+@mixin button-shadow {
+    box-shadow: 0px 2px 3px rgba($gray-900, 0.1);
+}

@@ -1,0 +1,96 @@
+/**
+ * Utilities
+ * -----------------------------------------------------------------------------
+ */
+@import "./colors";
+@import "./variables";
+
+/**
+ * TODO: Grid
+ */
+
+/**
+ * Margin/Padding Spacers
+ */
+$spacings: (
+    "xxs": $spacing-xxs,
+    "xs": $spacing-xs,
+    "sm": $spacing-sm,
+    "md": $spacing-md,
+    "lg": $spacing-lg,
+    "xl": $spacing-xl,
+    "xxl": $spacing-xxl,
+);
+$directions: (
+    "t": "top",
+    "r": "right",
+    "b": "bottom",
+    "l": "left",
+);
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+@each $spacing, $size in $spacings {
+    .m-#{$spacing} {
+        margin: $size;
+    }
+    .my-#{$spacing} {
+        margin-top: $size;
+        margin-bottom: $size;
+    }
+    .mx-#{$spacing} {
+        margin-left: $size;
+        margin-right: $size;
+    }
+    .p-#{$spacing} {
+        padding: $size;
+    }
+    .py-#{$spacing} {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+    .px-#{$spacing} {
+        padding-left: $size;
+        padding-right: $size;
+    }
+    @each $direction, $value in $directions {
+        .m#{$direction}-#{$spacing} {
+            margin-#{$value}: $size;
+        }
+        .p#{$direction}-#{$spacing} {
+            padding-#{$value}: $size;
+        }
+    }
+}
+
+/**
+ * Backgrounds
+ */
+$background-colors: (
+    "purple": $purple,
+    "purple-vivid": $purple-vivid,
+    "gray-lightest": $gray-100,
+    "gray-lighter": $gray-200,
+    "gray-light": $gray-300,
+    "gray": $gray-400,
+    "gray-dark": $gray-500,
+    "gray-darker": $gray-600,
+    "gray-darkest": $gray-700,
+    "warm-gray-lightest": $warm-gray-100,
+    "warm-gray-lighter": $warm-gray-200,
+    "warm-gray-light": $warm-gray-300,
+    "warm-gray": $warm-gray-400,
+    "warm-gray-dark": $warm-gray-500,
+    "warm-gray-darker": $warm-gray-600,
+    "warm-gray-darkest": $warm-gray-700,
+);
+@each $color, $hex in $background-colors {
+    .bg-#{$color} {
+        background: $hex;
+    }
+}

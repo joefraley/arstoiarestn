@@ -1,0 +1,8 @@
+@import "assets/styles";
+
+.journi-card {
+    @include card-shadow;
+    background: $white;
+    padding: $spacing-sm;
+    border-radius: $border-radius;
+}

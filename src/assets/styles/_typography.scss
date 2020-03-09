@@ -1,0 +1,134 @@
+/**
+ * Typography
+ * -----------------------------------------------------------------------------
+ */
+@import "./colors";
+@import "./variables";
+@import url("https://use.typekit.net/cfp8ynq.css");
+
+/**
+ * Mixins
+ */
+@mixin text-color {
+    color: $gray-900;
+    &.inverted {
+        color: $white;
+    }
+}
+
+/**
+ * Types
+ */
+body {
+    font-family: "effra", "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: $gray-900;
+}
+p,
+span {
+    @include text-color;
+    font-size: 1rem;
+}
+h1 {
+    @include text-color;
+    font-weight: $font-weight-light;
+    font-size: 2.75rem; // 44px
+    line-height: 2.875rem; // 46px
+    letter-spacing: -1.27;
+    margin-bottom: 0;
+}
+h2 {
+    @include text-color;
+    font-weight: $font-weight-light;
+    font-size: 2.125rem; // 34px
+    line-height: 2.25rem; // 36px
+    letter-spacing: -0.97;
+    margin-bottom: 0;
+}
+h3 {
+    @include text-color;
+    font-weight: $font-weight-light;
+    font-size: 1.5rem; // 24px
+    line-height: 1.625rem; // 26px
+    letter-spacing: -0.22;
+    margin-bottom: 0;
+}
+h4 {
+    @include text-color;
+    font-weight: $font-weight-normal;
+    font-size: 1.3125rem; // 21px
+    line-height: 1.5rem; // 24px
+    letter-spacing: 0.28;
+    margin-bottom: 0;
+}
+h5 {
+    @include text-color;
+    font-weight: $font-weight-bold;
+    font-size: 0.875rem; // 14px
+    line-height: 1.125rem; // 18px
+    letter-spacing: 2.05;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+h6 {
+    @include text-color;
+    font-weight: $font-weight-bold;
+    font-size: 1rem; // 16px
+    line-height: 1.125rem; // 18px
+    letter-spacing: 0.35;
+    margin-bottom: 0;
+}
+
+/**
+ * Variations
+ */
+.text-title {
+    @include text-color;
+    font-size: 1.125rem;
+    line-height: 1.25px;
+    letter-spacing: 0.3;
+}
+.text-disclaimer {
+    font-style: italic;
+    font-size: 0.94rem;
+    line-height: 1.125rem;
+    color: $gray-500;
+    &.inverted {
+        color: rgba($white, 0.45);
+    }
+}
+.text-label {
+    font-size: 12;
+    line-height: 12;
+    letter-spacing: 0.75;
+    margin-bottom: $spacing-xxs;
+    color: $gray-400;
+    &.inverted {
+        color: rgba($white, 0.8);
+    }
+}
+.text-primary {
+    color: $primary;
+    &.inverted {
+        color: $white;
+    }
+}
+.text-secondary {
+    color: $gray-600;
+    &.inverted {
+        color: rgba($white, 0.8);
+    }
+}
+.text-disabled {
+    color: $gray-500;
+    &.inverted {
+        color: rgba($white, 0.45);
+    }
+}
+.text-link {
+    color: $purple;
+    &.inverted {
+        color: $blue-medium;
+    }
+}

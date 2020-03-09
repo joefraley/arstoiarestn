@@ -6,6 +6,7 @@
  * -----------------------------------------------------------------------------
  */
 import React from "react"
+import "./card.scss"
 
 /**
  * Component
@@ -22,7 +23,7 @@ const Card: React.FunctionComponent<{
     /**
      * Template
      */
-    return <div>{props.children && props.children}</div>
+    return <div className="journi-card">{props.children && props.children}</div>
 }
 
 /**
