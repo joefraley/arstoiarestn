@@ -19,6 +19,23 @@ yarn start
 -   [ ] Tealium tagging
 -   [ ] CMS for i18n
 
+## Technology Stack
+
+-   Templating: React
+-   State: Apollo
+-   Routing: React Router
+-   Styles: Tailwind CSS + Emotion
+-   Testing: Cucumber
+-   Build: Webpack
+
+## Architecture Decisions
+
+-   Mobile-first layout
+-   Brandable color palette
+-   Brandable logo assets
+-   Multi-language support
+-   Accessibility/ 508 compliance
+
 ## Terminology
 
 -   **Element**: Lorem ipsum

@@ -22,7 +22,7 @@ const Card: React.FunctionComponent<{
     /**
      * Template
      */
-    return <div className="journi-card">{props.children && props.children}</div>
+    return <div>{props.children && props.children}</div>
 }
 
 /**
