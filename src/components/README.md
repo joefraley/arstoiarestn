@@ -1,14 +1,15 @@
 ## TODO
 
--   [ ] Avatar
--   [ ] Checkbox
--   [ ] Button
 -   [ ] Action List
--   [ ] Input
+-   [ ] Avatar
+-   [ ] Button
+-   [ ] Card
+-   [ ] Checkbox
 -   [ ] Icon
 -   [ ] Image
--   [ ] Pill/ Badge
+-   [ ] Input
 -   [ ] Modal
+-   [ ] Pill/ Badge
 -   [ ] Selection Dropdown
--   [ ] Selection List
 -   [ ] Selection Input
+-   [ ] Selection List
