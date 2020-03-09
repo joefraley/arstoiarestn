@@ -1,5 +1,5 @@
 import React from "react"
-import { Card } from "components"
+import { Icon, Card } from "components"
 
 /**
  * Component
@@ -18,6 +18,7 @@ const App: React.FunctionComponent = () => {
                         <br />
                         Jennifer
                     </h2>
+                    <Icon type="home" />
                 </div>
                 <div className="p-4">
                     <div className="row">

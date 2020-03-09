@@ -18,6 +18,7 @@ yarn start
 -   [ ] Form validation library
 -   [ ] Tealium tagging
 -   [ ] CMS for i18n
+-   [ ] Favicon
 
 ## Technology Stack
 
