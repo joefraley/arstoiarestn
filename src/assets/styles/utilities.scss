@@ -7,6 +7,15 @@
 /**
  * TODO: Grid
  */
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.col {
+    display: flex;
+    flex: 1;
+}
 
 /**
  * Margin/Padding Spacers
@@ -71,6 +80,7 @@ $directions: (
  * Backgrounds
  */
 $background-colors: (
+    "white": $white,
     "purple": $purple,
     "purple-vivid": $purple-vivid,
     "gray-lightest": $gray-100,

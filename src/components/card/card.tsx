@@ -7,17 +7,21 @@ import { Button } from "components"
 import "./card.scss"
 
 /**
- * Component
+ * Types
  * -----------------------------------------------------------------------------
  */
-const Card: React.FunctionComponent<{
-    /**
-     * Props
-     */
+interface Props
+    extends React.HTMLAttributes<HTMLDivElement & HTMLButtonElement> {
     readonly children?: any
     readonly size?: "small" | "medium"
     readonly onPress?: VoidFunction
-}> = props => {
+}
+
+/**
+ * Component
+ * -----------------------------------------------------------------------------
+ */
+const Card: React.FunctionComponent<Props> = props => {
     /**
      * Template
      */
@@ -26,7 +30,7 @@ const Card: React.FunctionComponent<{
             <Button
                 name="card-button"
                 title="Click to see card details"
-                className="journi-card"
+                className={`journi-card ${props.className}`}
                 variant="content"
                 onPress={() => false}
             >
