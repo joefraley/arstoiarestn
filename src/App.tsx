@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon, Card } from "components"
+import { Button, Card } from "components"
 
 /**
  * Component
@@ -18,12 +18,89 @@ const App: React.FunctionComponent = () => {
                         <br />
                         Jennifer
                     </h2>
-                    <Icon type="home" />
+                    <div className="p-sm">
+                        <Button
+                            icon="stethoscope"
+                            name="primary-icon-button-test"
+                            variant="primary"
+                            size="large"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            label="Primary"
+                            name="primary-button-test"
+                            variant="primary"
+                            size="large"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            icon="stethoscope"
+                            name="primary-icon-button-test"
+                            variant="primary"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            label="Primary"
+                            name="primary-button-test"
+                            variant="primary"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            icon="stethoscope"
+                            name="primary-icon-button-test"
+                            variant="primary"
+                            size="small"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            label="Primary"
+                            name="primary-button-test"
+                            variant="primary"
+                            size="small"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <br />
+                        <Button
+                            icon="stethoscope"
+                            name="primary-icon-button-test"
+                            variant="secondary"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            label="Secondary"
+                            name="primary-secondary-test"
+                            variant="secondary"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <br />
+                        <Button
+                            icon="stethoscope"
+                            name="primary-icon-button-test"
+                            variant="link"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                        <Button
+                            label="Link"
+                            name="primary-link-test"
+                            variant="link"
+                            onPress={() => false}
+                            className="mb-xs"
+                        />
+                    </div>
                 </div>
                 <div className="p-4">
                     <div className="row">
                         <div className="col my-sm">
-                            <Card>
+                            <Card onPress={() => false}>
                                 <span className="text-primary">
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Cum, iure maiores?

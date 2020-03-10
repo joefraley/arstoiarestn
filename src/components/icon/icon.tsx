@@ -31,7 +31,7 @@ const Icon: React.FunctionComponent<{
     const {
         type = "home",
         size = 24,
-        color = props.inverted ? "#FFFFFF" : "#282831",
+        color = props.inverted ? "#FFFFFF" : "#64009e", // TODO: JSON variables?
         secondaryColor = "transparent",
     } = props
 

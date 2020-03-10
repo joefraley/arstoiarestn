@@ -1,11 +1,9 @@
 /**
  * Card
- *
- * Usage:
- *     <Card />
  * -----------------------------------------------------------------------------
  */
 import React from "react"
+import { Button } from "components"
 import "./card.scss"
 
 /**
@@ -23,6 +21,19 @@ const Card: React.FunctionComponent<{
     /**
      * Template
      */
+    if (props.onPress) {
+        return (
+            <Button
+                name="card-button"
+                title="Click to see card details"
+                className="journi-card"
+                variant="content"
+                onPress={() => false}
+            >
+                {props.children && props.children}
+            </Button>
+        )
+    }
     return <div className="journi-card">{props.children && props.children}</div>
 }
 
