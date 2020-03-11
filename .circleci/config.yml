@@ -1,0 +1,43 @@
+version: 2.1
+
+orbs:
+
+commands:
+    install-node:
+        description: Install Node 8.12.0
+        steps:
+            - run:
+                  name: Install n and set node version
+                  command: sudo npm install -g n && sudo n 8.12.0
+    install-yarn:
+        description: Install Yarn 1.10.1
+        steps:
+            - run:
+                  name: Install yvm
+                  command: curl -s https://raw.githubusercontent.com/tophat/yvm/master/scripts/install.js | node
+            - run:
+                  name: Install yarn 1.10.1
+                  command: source /Users/distiller/.yvm/yvm.sh && yvm install 1.10.1 && yvm set-default 1.10.1
+
+jobs:
+    lint-and-build:
+        executor:
+            name: node/default
+        steps:
+            - checkout
+            - install-node
+            - install-yarn
+            - run:
+                  name: Install dependencies
+                  command: yarn
+            - run:
+                  name: Lint Typescript
+                  command: yarn run lint
+            - run:
+                  name: Build React
+                  command: yarn run build
+
+workflows:
+    lint-and-build:
+        jobs:
+            - lint-and-build

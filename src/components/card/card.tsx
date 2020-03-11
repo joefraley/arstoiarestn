@@ -12,7 +12,7 @@ import "./card.scss"
  */
 interface Props
     extends React.HTMLAttributes<HTMLDivElement & HTMLButtonElement> {
-    readonly children?: any
+    readonly children?: any // tslint:disable-line
     readonly size?: "small" | "medium"
     readonly onPress?: VoidFunction
 }

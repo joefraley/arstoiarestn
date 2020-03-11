@@ -27,9 +27,9 @@ const Routes: React.FC = props => {
      */
     return (
         <Layout>
-            <Route path="/" exact component={Home} />
-            <Route path="/settings" exact component={Settings} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/" exact={true} component={Home} />
+            <Route path="/settings" exact={true} component={Settings} />
+            <Route path="/login" exact={true} component={Login} />
         </Layout>
     )
 }

@@ -21,11 +21,11 @@ const Icon: React.FunctionComponent<{
     /**
      * Props
      */
-    type: IconTypes
-    size?: number
-    color?: string
-    secondaryColor?: string
-    inverted?: boolean
+    readonly type: IconTypes
+    readonly size?: number
+    readonly color?: string
+    readonly secondaryColor?: string
+    readonly inverted?: boolean
 }> = props => {
     // Default props
     const {
