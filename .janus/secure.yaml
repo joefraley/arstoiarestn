@@ -1,0 +1,20 @@
+stack_name: journi-web-app
+team_name: journi-core
+
+service_type: web application
+host_location: janus
+in_production: no
+external_facing: yes
+data_classification: null
+whitehat_id: null
+
+product_tags:
+    - journi
+
+threat_model:
+    - threat:
+          title: Exposed Cognito credentials
+          status: OPEN
+          risk: HIGH
+          description: The user can potentially view Cognito credentials in console network traffic
+          mitigation: Use one-time cognito tokens issued by backend

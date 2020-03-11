@@ -7,35 +7,62 @@ yarn install
 yarn start
 ```
 
-## TODO
-
--   [ ] Router
--   [ ] SVG Icons w/build system
--   [ ] Port RN Elements library
--   [ ] Redux/Saga setup (or Apollo 🤔)
--   [ ] GraphQL setup
--   [ ] Cucumber tests
--   [ ] Form validation library
--   [ ] Tealium tagging
--   [ ] CMS for i18n
--   [ ] Favicon
-
 ## Technology Stack
 
 -   Templating: React
 -   State: Apollo
 -   Routing: React Router
--   Styles: Tailwind CSS + Emotion
+-   Networking: Axios
+-   Styles: Custom SCSS
 -   Testing: Cucumber
 -   Build: Webpack
 
 ## Architecture Decisions
 
 -   Mobile-first layout
--   Brandable color palette
--   Brandable logo assets
 -   Multi-language support
 -   Accessibility/ 508 compliance
+-   Regression/ integration testing
+-   Care Guide support view
+-   Brandable colors/ logo
+-   Support IE11+
+
+## Priorities
+
+1.  **Accessibility** – Usability for all our customers
+2.  **Security** – Ensure customer trust with health data
+3.  **Developer experience** – Faster product lifecycles
+4.  **User experience** – Beautiful, branded experience
+5.  **Performance** – Dont' leave people waiting
+
+## Deploy
+
+-   [ ] Setup Github repository
+-   [ ] Setup CircleCI builds
+-   [ ] Setup Janus S3 static website
+-   [ ] Setup Janus environments w/promotion strategy
+-   [ ] Setup DNS routing
+    -   [ ] dev.journi.com
+    -   [ ] uat.journi.com
+    -   [ ] app.journi.com
+
+## TODO
+
+-   [ ] Router
+-   [x] SVG Icons w/build system
+-   [ ] Port RN Elements library
+-   [ ] Apollo setup
+-   [ ] GraphQL setup
+-   [ ] Cucumber tests
+-   [ ] Error handling
+-   [ ] Form validation library
+-   [ ] Tealium tagging
+-   [ ] Pager chat integration
+-   [ ] CMS for i18n
+-   [ ] Dynamic header titles
+-   [ ] Favicon
+-   [ ] Admin/Support view
+-   [ ] Code scanning (Vericode, Dependabot)
 
 ## Terminology
 

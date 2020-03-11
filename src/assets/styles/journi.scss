@@ -5,33 +5,3 @@
 @import "./variables";
 @import "./typography";
 @import "./utilities";
-
-/**
- * Structure
- * -----------------------------------------------------------------------------
- */
-html,
-body,
-#root,
-.app {
-    height: 100%;
-    width: 100%;
-    background: $warm-gray-100;
-    padding: 0;
-    margin: 0;
-}
-.app {
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-}
-.sidebar {
-    width: 190px;
-    min-width: 190px;
-    height: 100%;
-    background: $purple;
-}
-.main {
-    flex: 1;
-    height: 100%;
-}

@@ -24,11 +24,26 @@ const App: React.FunctionComponent = () => {
                 </div>
             </div>
             <div className="main">
-                <div className="bg-white pt-lg p-sm">
+                <div className="bg-white p-xs text-right">
+                    <Button
+                        name="logout-button"
+                        variant="link"
+                        icon="settings"
+                        onPress={() => false}
+                        className="mr-xxs"
+                    />
+                    <Button
+                        name="logout-button"
+                        variant="secondary"
+                        label="Sign out"
+                        onPress={() => false}
+                    />
+                </div>
+                <div className="bg-white p-sm">
                     <h2>
                         Welcome back,
                         <br />
-                        Jennifer
+                        Homer
                     </h2>
                 </div>
                 <div className="p-sm">
@@ -82,7 +97,7 @@ const App: React.FunctionComponent = () => {
                             </Card>
                         </div>
                     </div>
-                    <h2>Heading H2</h2>
+                    {/* <h2>Heading H2</h2>
                     <h3>Heading H3</h3>
                     <h4>Heading H4</h4>
                     <h5>Heading H5</h5>
@@ -92,7 +107,7 @@ const App: React.FunctionComponent = () => {
                         Fugiat quae beatae dolor, magnam mollitia tempora
                         perferendis eaque hic rerum labore eius quidem eum,
                         excepturi incidunt error ea natus dolorem? Fugit.
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </div>
