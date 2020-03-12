@@ -13,14 +13,14 @@ const Header: React.FC = props => {
     return (
         <div className="bg-white p-xs text-right">
             <Button
-                name="settings-button"
-                variant="secondary"
-                icon="settings"
+                name="header-account-button"
+                variant="link"
+                icon="user"
                 onPress={() => false}
                 className="mr-xxs"
             />
             <Button
-                name="logout-button"
+                name="header-signout-button"
                 variant="secondary"
                 label="Sign out"
                 onPress={() => false}

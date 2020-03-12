@@ -30,3 +30,16 @@ body,
     height: 100%;
     background: $purple;
 }
+
+.jo-sidebar-button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    span {
+        color: $white;
+    }
+    &.active {
+        background: rgba($purple-vivid, 0.7);
+    }
+}
