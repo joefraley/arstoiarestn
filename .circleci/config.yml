@@ -1,35 +1,31 @@
 version: 2.1
 
 orbs:
-
-commands:
-    install-node:
-        description: Install Node 8.12.0
-        steps:
-            - run:
-                  name: Install n and set node version
-                  command: sudo npm install -g n && sudo n 8.12.0
-    install-yarn:
-        description: Install Yarn 1.10.1
-        steps:
-            - run:
-                  name: Install yvm
-                  command: curl -s https://raw.githubusercontent.com/tophat/yvm/master/scripts/install.js | node
-            - run:
-                  name: Install yarn 1.10.1
-                  command: source /Users/distiller/.yvm/yvm.sh && yvm install 1.10.1 && yvm set-default 1.10.1
+    node: circleci/node@1.1.6
 
 jobs:
     lint-and-build:
         executor:
             name: node/default
+        environment:
+            ARTIFACTORY_URL: https://janusplatform.jfrog.io/janusplatform
         steps:
             - checkout
-            - install-node
-            - install-yarn
             - run:
-                  name: Install dependencies
+                  name: Setup Artifactory Registry
+                  command: npm config set registry=https://janusplatform.jfrog.io/janusplatform/api/npm/npm && npm config set _auth=${ARTIFACTORY_AUTH} && npm config set email=${ARTIFACTORY_EMAIL} && npm config set always-auth=true
+            - restore_cache:
+                  name: Restore Yarn Package Cache
+                  keys:
+                      - yarn-packages-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install Yarn Packages
                   command: yarn
+            - save_cache:
+                  name: Save Yarn Package Cache
+                  key: yarn-packages-{{ checksum "yarn.lock" }}
+                  paths:
+                      - ~/.cache/yarn
             - run:
                   name: Lint Typescript
                   command: yarn run lint
