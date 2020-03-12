@@ -4,28 +4,30 @@
 ## Setup
 
 ```bash
-yarn install
+yarn
 yarn start
 ```
 
 ## Technology Stack
 
--   Templating: React
--   State: Apollo
--   Routing: React Router
--   Networking: Axios
--   Styles: Custom SCSS
--   Testing: Cucumber
--   Build: Webpack
+-   **Templating**: [React](https://reactjs.org/docs/getting-started.html)
+-   **State**: [Apollo](https://www.apollographql.com/docs/react/)
+-   **Routing**: [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+-   **Networking**: [Axios](https://github.com/axios/axios)
+-   **Styles**: Custom [SCSS](https://sass-lang.com/documentation/syntax)
+-   **Testing**: [Cucumber](https://cucumber.io/docs/cucumber/) + [Puppeteer](https://github.com/puppeteer/puppeteer)
+-   **Build**: [CRA/ Webpack](https://create-react-app.dev/docs/getting-started)
 
 ## Architecture Decisions
 
+-   Single page application
+-   Hosted as S3 static website
 -   Mobile-first layout
 -   Multi-language support
 -   Accessibility/ 508 compliance
+-   GraphQL API support
 -   Regression/ integration testing
 -   Care Guide support view
--   Brandable colors/ logo
 -   Support IE11+
 
 ## Priorities
@@ -36,10 +38,12 @@ yarn start
 4.  **User experience** – Beautiful, branded experience
 5.  **Performance** – Dont' leave people waiting
 
-## Deploy
+## TODO
 
--   [ ] Setup Github repository
--   [ ] Setup CircleCI builds
+#### Deploy
+
+-   [x] Setup Github repository
+-   [x] Setup CircleCI builds
 -   [ ] Setup Janus S3 static website
 -   [ ] Setup Janus environments w/promotion strategy
 -   [ ] Setup DNS routing
@@ -47,15 +51,14 @@ yarn start
     -   [ ] uat.journi.com
     -   [ ] app.journi.com
 
-## TODO
+#### Tooling
 
 -   [ ] Router
 -   [x] SVG Icons w/build system
 -   [ ] Port RN Elements library
 -   [ ] Apollo setup
--   [ ] GraphQL setup
 -   [ ] Cucumber tests
--   [ ] Error handling
+-   [ ] Error handling (Datadog)
 -   [ ] Form validation library
 -   [ ] Tealium tagging
 -   [ ] Pager chat integration
@@ -65,25 +68,9 @@ yarn start
 -   [ ] Admin/Support view
 -   [ ] Code scanning (Vericode, Dependabot)
 
-## Terminology
-
--   **Element**: Lorem ipsum
--   **Component**: Lorem ipsum
--   **Scene**: Lorem ipsum
--   **Route**: Lorem ipsum
--   **Chrome**: Lorem ipsum
--   **State**: Lorem ipsum
--   **Reducer**: Lorem ipsum
--   **Saga**: Lorem ipsum
--   **Action**: Lorem ipsum
--   **Feature**: Lorem ipsum
--   **Responsive**: Lorem ipsum
--   **Adaptive**: Lorem ipsum
--   **Behavior**: Lorem ipsum
-
-## Rules of thumb
+## Developer Rules Of Thumb
 
 -   Write clean, but not clever code.
--   Write comments for a junior developer to understand.
+-   Write comments for a junior-level developer to understand.
 -   Avoid DRY patterns if it obfuscates code purpose or introduces "prop hell".
 -   Avoid premature optimization.
