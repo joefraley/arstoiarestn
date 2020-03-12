@@ -1,4 +1,5 @@
 # Journi Web App
+[![CircleCI](https://circleci.com/gh/cambiahealth/journi-web-app.svg?style=svg&circle-token=3d545b442db183ccf241d9c3fd1f7db93bdc5f17)](https://circleci.com/gh/cambiahealth/journi-web-app)
 
 ## Setup
 
