@@ -1,4 +1,5 @@
 # Journi Web App
+
 [![CircleCI](https://circleci.com/gh/cambiahealth/journi-web-app.svg?style=svg&circle-token=3d545b442db183ccf241d9c3fd1f7db93bdc5f17)](https://circleci.com/gh/cambiahealth/journi-web-app)
 
 ## Setup
@@ -53,20 +54,19 @@ yarn start
 
 #### Tooling
 
--   [ ] Router
+-   [x] Router
 -   [x] SVG Icons w/build system
--   [ ] Port RN Elements library
+-   [x] Component Library patterns
 -   [ ] Apollo setup
 -   [ ] Cucumber tests
 -   [ ] Error handling (Datadog)
 -   [ ] Form validation library
 -   [ ] Tealium tagging
 -   [ ] Pager chat integration
--   [ ] CMS for i18n
+-   [ ] i18n string library
 -   [ ] Dynamic header titles
 -   [ ] Favicon
 -   [ ] Admin/Support view
--   [ ] Code scanning (Vericode, Dependabot)
 
 ## Developer Rules Of Thumb
 

@@ -1,5 +1,8 @@
 /**
  * Button
+ *
+ * TODO: Analytics event tracking
+ * TODO: Element `data-test` tags for testing
  * -----------------------------------------------------------------------------
  */
 import React from "react"

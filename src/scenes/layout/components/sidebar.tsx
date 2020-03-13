@@ -37,6 +37,18 @@ const Sidebar: React.FC = props => {
                     icon="settings"
                     destination="/settings"
                 />
+                <SidebarButton
+                    name="sidebar-settings-button"
+                    label="Unknown"
+                    icon="help"
+                    destination="/unknown-page"
+                />
+                <SidebarButton
+                    name="sidebar-settings-button"
+                    label="Unauthorized"
+                    icon="close"
+                    destination="/unauthorized"
+                />
             </nav>
         </div>
     )

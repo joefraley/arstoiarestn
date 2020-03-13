@@ -18,6 +18,7 @@ import {
 import Layout from "./scenes/layout/layout"
 import Login from "./scenes/base/login"
 import FourOhFour from "./scenes/base/404"
+import NotAuthorized from "./scenes/base/not_authorized"
 import Home from "./scenes/home/home"
 import Settings from "./scenes/settings/settings"
 
@@ -27,11 +28,11 @@ import Settings from "./scenes/settings/settings"
  */
 const Routes: React.FC = props => {
     /**
-     * Dummy auth and features
+     * Feature flags
+     * TODO: Dynamically get feature flags
      */
-    // const isAuthenticated = false
     const features = {
-        settings: false,
+        settings: true,
     }
 
     /**
@@ -50,6 +51,12 @@ const Routes: React.FC = props => {
                 exact={true}
                 component={Settings}
                 isAuthorized={features.settings}
+            />
+            <AppRoute
+                path="/unauthorized"
+                exact={true}
+                component={Settings}
+                isAuthorized={false}
             />
 
             {/* 404 Route */}
@@ -86,10 +93,10 @@ const AppRoute: React.FC<AppRouteProps> = props => {
             to={{ pathname: "/login", state: { from: location.pathname } }}
         />
     ) : !isAuthorized ? (
-        // Authenticated, but not authorized to view this scene – show 404
-        <Redirect
-            to={{ pathname: "/404", state: { from: location.pathname } }}
-        />
+        // Authenticated, but not authorized to view this feature
+        <Layout>
+            <NotAuthorized />
+        </Layout>
     ) : (
         // All good bro – you may proceed
         <Layout>

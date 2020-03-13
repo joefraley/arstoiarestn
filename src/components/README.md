@@ -2,10 +2,10 @@
 
 -   [ ] Action List
 -   [ ] Avatar
--   [ ] Button
--   [ ] Card
+-   [x] Button
+-   [x] Card
 -   [ ] Checkbox
--   [ ] Icon
+-   [x] Icon
 -   [ ] Image
 -   [ ] Input
 -   [ ] Modal
