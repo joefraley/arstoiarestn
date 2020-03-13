@@ -1,0 +1,18 @@
+/**
+ * Base
+ * -----------------------------------------------------------------------------
+ */
+@import "assets/styles/variables";
+
+/**
+ * 404 Scene
+ * -----------------------------------------------------------------------------
+ */
+#jo-four-oh-four {
+    height: 100%;
+    width: 100%;
+    background: $warm-gray-100;
+    text-align: center;
+    padding: $spacing-md;
+    box-sizing: border-box;
+}

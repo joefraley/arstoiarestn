@@ -29,7 +29,7 @@ const Sidebar: React.FC = props => {
                     name="sidebar-home-button"
                     label="Home"
                     icon="home"
-                    destination="/"
+                    destination="/home"
                 />
                 <SidebarButton
                     name="sidebar-settings-button"
