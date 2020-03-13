@@ -4,6 +4,7 @@
  */
 import React from "react"
 import { useHistory, matchPath } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 import { Button, Icon } from "components"
 import { IconTypes } from "components/icon/types"
 
@@ -12,6 +13,11 @@ import { IconTypes } from "components/icon/types"
  * -----------------------------------------------------------------------------
  */
 const Sidebar: React.FC = props => {
+    /**
+     * Hooks
+     */
+    const { t } = useTranslation()
+
     /**
      * Template
      */
@@ -27,27 +33,39 @@ const Sidebar: React.FC = props => {
             <nav>
                 <SidebarButton
                     name="sidebar-home-button"
-                    label="Home"
+                    label={t("base.home")}
                     icon="home"
                     destination="/home"
                 />
                 <SidebarButton
+                    name="sidebar-profiles-button"
+                    label={t("base.profiles")}
+                    icon="family"
+                    destination="/profiles"
+                />
+                <SidebarButton
+                    name="sidebar-resources-button"
+                    label={t("base.resources")}
+                    icon="resources"
+                    destination="/resources"
+                />
+                <SidebarButton
+                    name="sidebar-finances-button"
+                    label={t("base.finances")}
+                    icon="finance"
+                    destination="/finances"
+                />
+                <SidebarButton
+                    name="sidebar-connect-button"
+                    label={t("base.connect")}
+                    icon="chat"
+                    destination="/connect"
+                />
+                <SidebarButton
                     name="sidebar-settings-button"
-                    label="Settings"
+                    label={t("base.settings")}
                     icon="settings"
                     destination="/settings"
-                />
-                <SidebarButton
-                    name="sidebar-settings-button"
-                    label="Unknown"
-                    icon="help"
-                    destination="/unknown-page"
-                />
-                <SidebarButton
-                    name="sidebar-settings-button"
-                    label="Unauthorized"
-                    icon="close"
-                    destination="/unauthorized"
                 />
             </nav>
         </div>

@@ -923,7 +923,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0", "@babel/runtime@^7.5.5":
   version "7.8.7"
   resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
   integrity sha1-j+/OmALbVIgbpZ+Quyhxm0mWMk0=
@@ -5228,6 +5228,13 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+i18next-browser-languagedetector@^4.0.2:
+  version "4.0.2"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/i18next-browser-languagedetector/-/i18next-browser-languagedetector-4.0.2.tgz#eb02535cc5e57dd534fc60abeede05a3823a8551"
+  integrity sha1-6wJTXMXlfdU0/GCr7t4Fo4I6hVE=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
 
 i18next@^19.3.2:
   version "19.3.2"

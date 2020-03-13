@@ -3,6 +3,7 @@
  * -----------------------------------------------------------------------------
  */
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Card } from "components"
 
 /**
@@ -10,14 +11,18 @@ import { Card } from "components"
  * -----------------------------------------------------------------------------
  */
 const Home: React.FC = () => {
+    /**
+     * Hooks
+     */
+    const { t } = useTranslation()
+
+    /**
+     * Template
+     */
     return (
         <div>
             <div className="bg-white p-sm">
-                <h2>
-                    Welcome back,
-                    <br />
-                    Homer
-                </h2>
+                <h2>{t("home.welcome", { name: "Homer" })}</h2>
             </div>
             <div className="p-sm">
                 <div className="row">
@@ -29,7 +34,7 @@ const Home: React.FC = () => {
                                 width="100%"
                             />
                             <div className="mt-xs text-center">
-                                Check network
+                                {t("home.checkNetwork")}
                             </div>
                         </Card>
                     </div>
@@ -41,7 +46,7 @@ const Home: React.FC = () => {
                                 width="100%"
                             />
                             <div className="mt-xs text-center">
-                                Research medications
+                                {t("home.researchMedications")}
                             </div>
                         </Card>
                     </div>
@@ -53,7 +58,7 @@ const Home: React.FC = () => {
                                 width="100%"
                             />
                             <div className="mt-xs text-center">
-                                Add to community
+                                {t("home.addToCommunity")}
                             </div>
                         </Card>
                     </div>
@@ -64,7 +69,9 @@ const Home: React.FC = () => {
                                 alt="Care team"
                                 width="100%"
                             />
-                            <div className="mt-xs text-center">Ask a nurse</div>
+                            <div className="mt-xs text-center">
+                                {t("home.askANurse")}
+                            </div>
                         </Card>
                     </div>
                 </div>

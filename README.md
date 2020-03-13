@@ -63,7 +63,7 @@ yarn start
 -   [ ] Form validation library
 -   [ ] Tealium tagging
 -   [ ] Pager chat integration
--   [ ] i18n string library
+-   [x] i18n string library
 -   [ ] Dynamic header titles
 -   [ ] Favicon
 -   [ ] Admin/Support view

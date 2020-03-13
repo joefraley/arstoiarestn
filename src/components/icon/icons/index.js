@@ -2,6 +2,7 @@
 
 export { default as add } from './add.js';
 export { default as addphoto } from './addphoto.js';
+export { default as bell } from './bell.js';
 export { default as calendar } from './calendar.js';
 export { default as camera } from './camera.js';
 export { default as chart } from './chart.js';
@@ -23,6 +24,7 @@ export { default as filter } from './filter.js';
 export { default as finance } from './finance.js';
 export { default as flag } from './flag.js';
 export { default as folder } from './folder.js';
+export { default as globe } from './globe.js';
 export { default as help } from './help.js';
 export { default as home } from './home.js';
 export { default as hospital } from './hospital.js';
@@ -73,6 +75,7 @@ export { default as syringe } from './syringe.js';
 export { default as timeline } from './timeline.js';
 export { default as topical } from './topical.js';
 export { default as touchid } from './touchid.js';
+export { default as translation } from './translation.js';
 export { default as trash } from './trash.js';
 export { default as unlocked } from './unlocked.js';
 export { default as user } from './user.js';

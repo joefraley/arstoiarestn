@@ -1,6 +1,7 @@
 export type IconTypes =
     | "add"
     | "addphoto"
+    | "bell"
     | "calendar"
     | "camera"
     | "chart"
@@ -22,6 +23,7 @@ export type IconTypes =
     | "finance"
     | "flag"
     | "folder"
+    | "globe"
     | "help"
     | "home"
     | "hospital"
@@ -75,6 +77,7 @@ export type IconTypes =
     | "timeline"
     | "topical"
     | "touchid"
+    | "translation"
     | "trash"
     | "unlocked"
     | "user"

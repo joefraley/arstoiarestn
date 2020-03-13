@@ -36,6 +36,7 @@ h1 {
     line-height: 2.875rem; // 46px
     letter-spacing: -1.27px;
     margin: 0;
+    white-space: pre-wrap; // support "\n" in i18n strings
 }
 h2 {
     @include text-color;
@@ -44,6 +45,7 @@ h2 {
     line-height: 2.25rem; // 36px
     letter-spacing: -0.97px;
     margin: 0;
+    white-space: pre-wrap; // support "\n" in i18n strings
 }
 h3 {
     @include text-color;
@@ -52,6 +54,7 @@ h3 {
     line-height: 1.625rem; // 26px
     letter-spacing: -0.22px;
     margin: 0;
+    white-space: pre-wrap; // support "\n" in i18n strings
 }
 h4 {
     @include text-color;
@@ -60,6 +63,7 @@ h4 {
     line-height: 1.5rem; // 24px
     letter-spacing: 0.28px;
     margin: 0;
+    white-space: pre-wrap; // support "\n" in i18n strings
 }
 h5 {
     @include text-color;
@@ -69,6 +73,7 @@ h5 {
     letter-spacing: 2.05px;
     text-transform: uppercase;
     margin: 0;
+    white-space: pre-wrap; // support "\n" in i18n strings
 }
 h6 {
     @include text-color;
@@ -77,6 +82,7 @@ h6 {
     line-height: 1.125rem; // 18px
     letter-spacing: 0.35px;
     margin: 0;
+    white-space: pre-wrap; // support "\n" in i18n strings
 }
 
 /**
