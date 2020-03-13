@@ -1,5 +1,7 @@
 /**
  * Routes
+ *
+ * TODO: Dynamically update document.title
  * -----------------------------------------------------------------------------
  */
 import React from "react"

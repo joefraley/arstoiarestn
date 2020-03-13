@@ -65,7 +65,7 @@ yarn start
 -   [ ] Pager chat integration
 -   [x] i18n string library
 -   [ ] Dynamic header titles
--   [ ] Favicon
+-   [x] Favicon
 -   [ ] Admin/Support view
 
 ## Developer Rules Of Thumb
