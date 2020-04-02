@@ -4,6 +4,8 @@
 
 ## Setup
 
+Create an `.npmrc` file in root directory of the project as described in [docs](https://confluence.cambiahealth.com/confluence/display/CCSE/Artifactory+-+Getting+Started)
+
 ```bash
 yarn
 yarn start
