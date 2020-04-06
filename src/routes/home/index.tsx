@@ -4,21 +4,21 @@
  */
 import React from "react"
 import { useTranslation } from "react-i18next"
+import { useQuery } from "@apollo/react-hooks"
 import { Card } from "components"
+import * as Queries from "./data"
 
 /**
  * Component
  * -----------------------------------------------------------------------------
  */
 const Home: React.FC = () => {
-    /**
-     * Hooks
-     */
     const { t } = useTranslation()
+    const { loading, error, data } = useQuery(Queries.EXCHANGE_RATES)
 
-    /**
-     * Template
-     */
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>Error :(</p>
+
     return (
         <div>
             <div className="bg-white p-sm">
@@ -26,6 +26,13 @@ const Home: React.FC = () => {
             </div>
             <div className="p-sm">
                 <div className="row">
+                    <div className="col p-xxs">
+                        <Card onPress={() => false}>
+                            <div className="mt-xs text-center">
+                                {JSON.stringify(data)}
+                            </div>
+                        </Card>
+                    </div>
                     <div className="col p-xxs">
                         <Card onPress={() => false}>
                             <img

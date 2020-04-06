@@ -1,20 +1,24 @@
 /**
- * 404'd
+ * Layout
  * -----------------------------------------------------------------------------
  */
 import React from "react"
-import "./base.scss"
+import Sidebar from "./components/sidebar"
+import Header from "./components/header"
+import "./styles.scss"
 
 /**
  * Component
  * -----------------------------------------------------------------------------
  */
-const FourOhFour: React.FC = () => {
+const Layout: React.FC = props => {
     return (
-        <div id="jo-four-oh-four">
-            <img src="/img/cat_color.png" alt="Sleepy cat" width="240px" />
-            <h1 className="my-xs">404</h1>
-            <h5 className="mt-xs">Oops! Could not find this page</h5>
+        <div id="jo-app">
+            <Sidebar />
+            <div id="jo-content">
+                <Header />
+                {props.children}
+            </div>
         </div>
     )
 }
@@ -23,4 +27,4 @@ const FourOhFour: React.FC = () => {
  * Export
  * -----------------------------------------------------------------------------
  */
-export default FourOhFour
+export default Layout

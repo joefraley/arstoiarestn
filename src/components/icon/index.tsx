@@ -9,7 +9,6 @@
  * -----------------------------------------------------------------------------
  */
 import React from "react"
-import "./icon.scss"
 import * as Icons from "./icons"
 import { IconTypes } from "./types"
 

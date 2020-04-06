@@ -8,7 +8,7 @@
 import React from "react"
 import { Icon } from "components"
 import { IconTypes } from "components/icon/types"
-import "./button.scss"
+import "./styles.scss"
 
 /**
  * Types

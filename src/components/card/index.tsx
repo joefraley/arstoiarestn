@@ -4,7 +4,7 @@
  */
 import React from "react"
 import { Button } from "components"
-import "./card.scss"
+import "./styles.scss"
 
 /**
  * Types
