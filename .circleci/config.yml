@@ -32,6 +32,10 @@ jobs:
       - run:
           name: Build React
           command: yarn run build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - build/
 
 workflows:
   version: 2
@@ -65,4 +69,4 @@ workflows:
             branches:
               only:
                 - master
-                - release
+                - development
