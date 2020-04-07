@@ -1,3 +1,5 @@
+/* tslint:disable no-any */
+
 /**
  * Routes
  * -----------------------------------------------------------------------------
@@ -44,7 +46,7 @@ export const ProtectedRoute = ({
 
 function withStandardLayout<T extends RouteProps>(
     Component: React.ComponentType<T>,
-) {
+): any {
     return (props: T) => {
         return (
             <Layouts.Standard>
@@ -54,7 +56,7 @@ function withStandardLayout<T extends RouteProps>(
     }
 }
 
-const Routes = [
+export default [
     {
         path: ["/", "/login"],
         exact: true,
@@ -88,5 +90,3 @@ const Routes = [
         protected: false,
     },
 ]
-
-export default Routes

@@ -16,8 +16,12 @@ const Home: React.FC = () => {
     const { t } = useTranslation()
     const { loading, error, data } = useQuery(Queries.EXCHANGE_RATES)
 
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error :(</p>
+    if (loading) {
+        return <p>Loading...</p>
+    }
+    if (error) {
+        return <p>{JSON.stringify(error)}</p>
+    }
 
     return (
         <div>

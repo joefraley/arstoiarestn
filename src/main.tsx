@@ -1,3 +1,4 @@
+/* tslint:disable no-any */
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 import Routes, { ProtectedRoute } from "./routes"
