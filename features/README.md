@@ -2,7 +2,8 @@
 
 ## TODO
 
--   [ ] Start test server to serve single-page app
+-   [x] Start test server to serve single-page app
+-   [ ] Create step helpers for common DOM interactions
 -   [ ] Setup [cucumber-html-reporter](https://github.com/gkushang/cucumber-html-reporter#readme)
 -   [ ] Publish Cucumber Reports somewhere
 

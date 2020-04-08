@@ -104,7 +104,7 @@ const SidebarButton: React.FC<{
      */
     return (
         <Button
-            name="sidebar-settings-button"
+            name={props.name}
             variant="content"
             onPress={() => history.push(props.destination)}
             className={styles + activeStyle}

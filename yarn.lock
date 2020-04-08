@@ -4942,7 +4942,7 @@ color@^3.0.0:
     color-convert "^1.9.1"
     color-string "^1.5.2"
 
-colors@^1.1.2:
+colors@^1.1.2, colors@^1.4.0:
   version "1.4.0"
   resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
   integrity sha1-xQSRR51MG9rtLJztMs98fcI2D3g=
@@ -5565,6 +5565,15 @@ cucumber-expressions@^8.1.0:
   dependencies:
     becke-ch--regex--s0-0-v1--base--pl--lib "^1.4.0"
     xregexp "^4.2.4"
+
+cucumber-pretty@6:
+  version "6.0.0"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/cucumber-pretty/-/cucumber-pretty-6.0.0.tgz#1331deae9663020f6835d60c0aa3a84637baaa4d"
+  integrity sha1-EzHerpZjAg9oNdYMCqOoRje6qk0=
+  dependencies:
+    cli-table3 "^0.5.1"
+    colors "^1.4.0"
+    figures "^3.0.0"
 
 cucumber-tag-expressions@^2.0.2:
   version "2.0.3"

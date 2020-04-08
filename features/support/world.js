@@ -10,7 +10,7 @@ const World = function() {
     scope.driver = puppeteer
     scope.config = {
         headless: true,
-        slowMo: 1000,
+        slowMo: 10,
         width: 1280,
         height: 1024,
     }

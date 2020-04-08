@@ -69,6 +69,7 @@ const Button: React.FunctionComponent<Props> = props => {
     return (
         <button
             id={name}
+            data-test={name}
             className={classNames}
             type="button"
             onClick={props.onPress}
