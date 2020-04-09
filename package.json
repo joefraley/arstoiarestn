@@ -49,9 +49,15 @@
         "@storybook/addon-a11y": "^5.3.18",
         "@storybook/addon-actions": "^5.3.18",
         "@storybook/addon-links": "^5.3.18",
+        "@storybook/addon-storyshots": "^5.3.18",
+        "@storybook/addon-storyshots-puppeteer": "^5.3.18",
         "@storybook/addons": "^5.3.18",
         "@storybook/preset-create-react-app": "^2.1.1",
-        "@storybook/react": "^5.3.18"
+        "@storybook/react": "^5.3.18",
+        "babel-plugin-macros": "^2.8.0",
+        "puppeteer": "^2.1.1",
+        "react-test-renderer": "^16.13.1",
+        "require-context.macro": "^1.2.2"
     },
     "eslintConfig": {
         "extends": "react-app"

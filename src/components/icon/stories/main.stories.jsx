@@ -1,13 +1,14 @@
 import React from "react"
 import { withA11y } from "@storybook/addon-a11y"
 import { storiesOf } from "@storybook/react"
+import requireContext from "require-context.macro"
 import Icon from ".."
 
 export default { title: "Icons", decorators: [withA11y] }
 
 const findIcons = () => {
     let iconNames = []
-    const icons = require.context("../icons", true, /\.js$/)
+    const icons = requireContext("../icons", true, /\.js$/)
     icons.keys().forEach(path => {
         iconNames.push(path.split("./")[1].match(/.+(?=\.)/gi)[0])
     })
@@ -32,6 +33,11 @@ storiesOf("Icons", module).add("all", () => {
         </div>
     )
 })
+
 icons.map(name =>
-    storiesOf("Icons", module).add(name, () => <Icon type={name} />),
+    storiesOf("Icons", module)
+        .addParameters({
+            storyshots: { disable: true },
+        })
+        .add(name, () => <Icon type={name} />),
 )
