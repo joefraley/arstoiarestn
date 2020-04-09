@@ -1,6 +1,6 @@
 import React from "react"
 
-const SvgTiersTwo = props => (
+const SvgTierstwo = props => (
     <svg
         id="Layer_1"
         x="0px"
@@ -53,4 +53,4 @@ const SvgTiersTwo = props => (
     </svg>
 )
 
-export default SvgTiersTwo
+export default SvgTierstwo

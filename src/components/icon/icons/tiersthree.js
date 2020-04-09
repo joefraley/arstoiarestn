@@ -1,6 +1,6 @@
 import React from "react"
 
-const SvgTiersOne = props => (
+const SvgTiersthree = props => (
     <svg
         id="Layer_1"
         x="0px"
@@ -30,7 +30,7 @@ const SvgTiersOne = props => (
             id="bar2"
             fill="none"
             stroke={props.color}
-            strokeOpacity={0.25}
+            strokeOpacity={1}
             strokeWidth={4}
             strokeMiterlimit={10}
             x1={12}
@@ -42,7 +42,7 @@ const SvgTiersOne = props => (
             id="bar3"
             fill="none"
             stroke={props.color}
-            strokeOpacity={0.25}
+            strokeOpacity={1}
             strokeWidth={4}
             strokeMiterlimit={10}
             x1={18}
@@ -53,4 +53,4 @@ const SvgTiersOne = props => (
     </svg>
 )
 
-export default SvgTiersOne
+export default SvgTiersthree

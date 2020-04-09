@@ -8,7 +8,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "svg": "make svg"
+        "svg": "make svg",
+        "storybook": "start-storybook -p 9009 -s public",
+        "build-storybook": "build-storybook -s ./public -o ./styleguide"
     },
     "dependencies": {
         "@apollo/react-hooks": "^3.1.4",
@@ -21,6 +23,7 @@
         "@types/react": "^16.9.0",
         "@types/react-dom": "^16.9.0",
         "@types/react-router-dom": "^5.1.3",
+        "@types/styled-components": "^5.0.1",
         "apollo-boost": "^0.4.7",
         "create-index": "^2.5.0",
         "graphql": "^15.0.0",
@@ -33,6 +36,7 @@
         "react-i18next": "^11.3.3",
         "react-router-dom": "^5.1.2",
         "react-scripts": "3.3.0",
+        "styled-components": "^5.1.0",
         "tslint": "^5.20.1",
         "tslint-config-prettier": "^1.18.0",
         "tslint-immutable": "^6.0.1",
@@ -41,9 +45,17 @@
         "tslint-react": "^4.1.0",
         "typescript": "~3.7.2"
     },
+    "devDependencies": {
+        "@storybook/addon-actions": "^5.3.18",
+        "@storybook/addon-links": "^5.3.18",
+        "@storybook/addons": "^5.3.18",
+        "@storybook/preset-create-react-app": "^2.1.1",
+        "@storybook/react": "^5.3.18"
+    },
     "eslintConfig": {
         "extends": "react-app"
     },
+    "homepage": ".",
     "browserslist": {
         "production": [
             ">0.2%",
