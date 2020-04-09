@@ -1,8 +1,9 @@
 import React from "react"
+import { withA11y } from "@storybook/addon-a11y"
 import { storiesOf } from "@storybook/react"
 import Icon from ".."
 
-export default { title: "Icons" }
+export default { title: "Icons", decorators: [withA11y] }
 
 const findIcons = () => {
     let iconNames = []
