@@ -10,7 +10,7 @@ Given("I am on the home page", async () => {
 })
 
 When("I click on Settings in the sidebar", async () => {
-    const sidebarButton = "#sidebar-settings-button"
+    const sidebarButton = `[data-test="sidebar-settings-button"]`
     await scope.context.page.waitForSelector(sidebarButton)
     await scope.context.page.click(sidebarButton)
 })
