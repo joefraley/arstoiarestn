@@ -1,72 +1,76 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@1.1.6
-  js: cambiahealth/janus-javascript@1
-  sb: cambiahealth/stack-build@1
+    node: circleci/node@1.1.6
+    js: cambiahealth/janus-javascript@1
+    sb: cambiahealth/stack-build@1
 jobs:
-  lint-and-build:
-    executor:
-      name: node/default
-    environment:
-      JOBS: 1
-    steps:
-      - checkout
-      - js/configure-npm:
-          target: .npmrc
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Yarn Packages
-          command: yarn
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-      - run:
-          name: Lint Typescript
-          command: yarn run lint
-      - run:
-          name: Build React
-          command: yarn run build
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - build/
+    lint-and-build:
+        executor:
+            name: node/default
+        environment:
+            JOBS: 1
+        steps:
+            - checkout
+            - js/configure-npm:
+                  target: .npmrc
+            - restore_cache:
+                  name: Restore Yarn Package Cache
+                  keys:
+                      - yarn-packages-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install Yarn Packages
+                  command: yarn
+            - save_cache:
+                  name: Save Yarn Package Cache
+                  key: yarn-packages-{{ checksum "yarn.lock" }}
+                  paths:
+                      - ~/.cache/yarn
+            - run:
+                  name: Lint Typescript
+                  command: yarn run lint
+            - run:
+                  name: Build React
+                  command: yarn run build
+            - run:
+                  name: Build Styleguide
+                  command: yarn run build-storybook
+            - persist_to_workspace:
+                  root: ./
+                  paths:
+                      - build/
+                      - styleguide/
 
 workflows:
-  version: 2
-  janus-pipeline:
-    jobs:
-      - sb/preflight
-      - sb/normalize:
-          context: cambia
-          requires:
+    version: 2
+    janus-pipeline:
+        jobs:
             - sb/preflight
-      - lint-and-build:
-          context: cambia
-          requires:
-            - sb/preflight
-      - sb/stack-formation:
-          context: cambia
-          get-s3-contents-from-workspace: true
-          requires:
-            - sb/normalize
-            - lint-and-build
-      - sb/stack-review:
-          context: cambia
-          requires:
-            - sb/normalize
-      - sb/publish-artifacts:
-          context: journi-web-app
-          requires:
-            - sb/stack-formation
-            - sb/stack-review
-          filters:
-            branches:
-              only:
-                - master
-                - development
+            - sb/normalize:
+                  context: cambia
+                  requires:
+                      - sb/preflight
+            - lint-and-build:
+                  context: cambia
+                  requires:
+                      - sb/preflight
+            - sb/stack-formation:
+                  context: cambia
+                  get-s3-contents-from-workspace: true
+                  requires:
+                      - sb/normalize
+                      - lint-and-build
+            - sb/stack-review:
+                  context: cambia
+                  requires:
+                      - sb/normalize
+            - sb/publish-artifacts:
+                  context: journi-web-app
+                  requires:
+                      - sb/stack-formation
+                      - sb/stack-review
+                  filters:
+                      branches:
+                          only:
+                              - master
+                              - development

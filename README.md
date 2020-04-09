@@ -16,7 +16,7 @@ yarn start
 Implementations of all the [components](https://github.com/cambiahealth/journi-web-app/tree/implement-storybook/src/components) in the design system are catalogued using [Storybook](https://storybook.js.org/).
 
 -   Locally: run `npm run storybook` to see the catalogue at [`localhost:9009`](https://github.com/cambiahealth/journi-web-app/blob/implement-storybook/package.json#L12)
--   In deployed environments: https://jira.healthsparq.net/browse/SEAM-5566
+-   In deployed environments: https://journi-web-app-styleguide.dev.janusplatform.io/
 
 ## Technology Stack
 
