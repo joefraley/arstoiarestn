@@ -40,7 +40,7 @@ const Icon: React.FunctionComponent<{
     /**
      * Template
      */
-    return <SVG height={size} color={color} secondaryColor={secondaryColor} />
+    return <SVG height={size} color={color} secondarycolor={secondaryColor} />
 }
 
 /**
