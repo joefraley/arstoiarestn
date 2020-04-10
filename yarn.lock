@@ -2479,6 +2479,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-helmet@^5.0.15":
+  version "5.0.15"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/@types/react-helmet/-/react-helmet-5.0.15.tgz#af0370617307e9f062c6aee0f1f5588224ce646e"
+  integrity sha1-rwNwYXMH6fBixq7g8fVYgiTOZG4=
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@*":
   version "0.62.2"
   resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/@types/react-native/-/react-native-0.62.2.tgz#f3e150f308c27089cefbcbfa3eb6cc14db279b2f"
@@ -2571,6 +2578,11 @@
   integrity sha1-LHDVxo9uAC47Lk+EmtxfFiVG9jM=
   dependencies:
     source-map "^0.6.1"
+
+"@types/voca@^1.4.0":
+  version "1.4.0"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/@types/voca/-/voca-1.4.0.tgz#59d93132e411f13fbaacb166a2047464c463535a"
+  integrity sha1-WdkxMuQR8T+6rLFmogR0ZMRjU1o=
 
 "@types/webpack-env@^1.14.0", "@types/webpack-env@^1.15.0":
   version "1.15.1"
@@ -12599,6 +12611,16 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^2.0.4"
     shallowequal "^1.1.0"
 
+react-helmet@^6.0.0:
+  version "6.0.0"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/react-helmet/-/react-helmet-6.0.0.tgz#fcb93ebaca3ba562a686eb2f1f9d46093d83b5f8"
+  integrity sha1-/Lk+uso7pWKmhusvH51GCT2Dtfg=
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.7.2"
+    react-fast-compare "^2.0.4"
+    react-side-effect "^2.1.0"
+
 react-hotkeys@2.0.0:
   version "2.0.0"
   resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/react-hotkeys/-/react-hotkeys-2.0.0.tgz#a7719c7340cbba888b0e9184f806a9ec0ac2c53f"
@@ -12763,6 +12785,11 @@ react-scripts@3.3.0:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-side-effect@^2.1.0:
+  version "2.1.0"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
+  integrity sha1-HOSotERRaMSH7STauIZCH3TTgNM=
 
 react-sizeme@^2.5.2, react-sizeme@^2.6.7:
   version "2.6.12"
@@ -15332,6 +15359,11 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+
+voca@^1.4.0:
+  version "1.4.0"
+  resolved "https://janusplatform.jfrog.io/janusplatform/api/npm/npm/voca/-/voca-1.4.0.tgz#e15ac58b38290b72acc0c330366b6cc7984924d7"
+  integrity sha1-4VrFizgpC3KswMMwNmtsx5hJJNc=
 
 void-elements@^2.0.1:
   version "2.0.1"

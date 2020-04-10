@@ -5,6 +5,7 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import { useQuery } from "@apollo/react-hooks"
+import { Helmet } from "react-helmet"
 import { Card } from "components"
 import * as Queries from "./data"
 
@@ -20,7 +21,14 @@ const Home: React.FC = () => {
         return <p>Loading...</p>
     }
     if (error) {
-        return <p>{JSON.stringify(error)}</p>
+        return (
+            <>
+                <Helmet>
+                    <title>Oops!</title>
+                </Helmet>
+                <p>{JSON.stringify(error)}</p>
+            </>
+        )
     }
 
     return (
