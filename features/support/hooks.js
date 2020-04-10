@@ -78,7 +78,7 @@ BeforeAll({ timeout: 30 * 10000 }, async () => {
 /**
  * Setup browser
  */
-Before(async () => {
+Before({ timeout: 10 * 10000 }, async () => {
     if (!scope.browser) {
         const { headless, width, height } = scope.config
         scope.browser = await scope.driver.launch({ headless })

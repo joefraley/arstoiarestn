@@ -10,7 +10,7 @@ svg:
 	# Clean SVGs and create React components
 	# Note: For script below, make sure that when exporting in Illustrator export uses the presentation attributes
 	# File > Export > Export as > SVG > SVG Options [choose - styling = Presentation Attributes]
-	yarn svgr src/assets/svg --out-dir src/components/icon/icons --replace-attr-values "#000={color}" --replace-attr-values "#000000={props.color}" --replace-attr-values "black={props.color}" --replace-attr-values "#F00={props.secondaryColor}" --replace-attr-values "#FF0000={props.secondaryColor}" --replace-attr-values "red={props.secondaryColor}" --filename-case "kebab" --svg-props "height={props.height}" --svg-props "width={props.height}" --no-svgo --prettier-config "{\"semi\": false, \"singleQuote\": false, \"printWidth\": 120 }"
+	npx svgr src/assets/svg --out-dir src/components/icon/icons --replace-attr-values "#000={color}" --replace-attr-values "#000000={props.color}" --replace-attr-values "black={props.color}" --replace-attr-values "#F00={props.secondaryColor}" --replace-attr-values "#FF0000={props.secondaryColor}" --replace-attr-values "red={props.secondaryColor}" --filename-case "kebab" --svg-props "height={props.height}" --svg-props "width={props.height}" --no-svgo --prettier-config "{\"semi\": false, \"singleQuote\": false, \"printWidth\": 120 }"
 
 	# Create type file of icon names
 	echo "export type IconTypes =" > src/components/icon/types.ts
@@ -21,4 +21,4 @@ svg:
 	done;
 
 	# Create index file of new SVG components
-	yarn create-index src/components/icon/icons -x js
+	npx create-index src/components/icon/icons -x js

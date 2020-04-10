@@ -7,8 +7,8 @@
 Create an `.npmrc` file in root directory of the project as described in [docs](https://confluence.cambiahealth.com/confluence/display/CCSE/Artifactory+-+Getting+Started)
 
 ```bash
-yarn
-yarn start
+npm install
+npm start
 ```
 
 ## Component Library
@@ -54,7 +54,7 @@ Implementations of all the [components](https://github.com/cambiahealth/journi-w
 
 -   [x] Setup Github repository
 -   [x] Setup CircleCI builds
--   [ ] Setup Janus S3 static website
+-   [x] Setup Janus S3 static website
 -   [ ] Setup Janus environments w/promotion strategy
 -   [ ] Setup DNS routing
     -   [ ] dev.journi.com
@@ -66,14 +66,14 @@ Implementations of all the [components](https://github.com/cambiahealth/journi-w
 -   [x] Router
 -   [x] SVG Icons w/build system
 -   [x] Component Library patterns
--   [ ] Apollo setup
--   [ ] Cucumber tests
+-   [x] Apollo setup
+-   [x] Cucumber tests
 -   [ ] Error handling (Datadog)
 -   [ ] Form validation library
 -   [ ] Tealium tagging
 -   [ ] Pager chat integration
 -   [x] i18n string library
--   [ ] Dynamic header titles
+-   [x] Dynamic header titles
 -   [x] Favicon
 -   [ ] Admin/Support view
 
