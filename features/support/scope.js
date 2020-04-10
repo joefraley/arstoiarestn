@@ -1,0 +1,4 @@
+/**
+ * Cucumber Scope
+ */
+module.exports = {}

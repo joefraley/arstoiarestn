@@ -83,3 +83,9 @@ Implementations of all the [components](https://github.com/cambiahealth/journi-w
 -   Write comments for a junior-level developer to understand.
 -   Avoid DRY patterns if it obfuscates code purpose or introduces "prop hell".
 -   Avoid premature optimization.
+
+## Helpful VS Code Extensions
+
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
+-   [Cucumber (Gherkin) Syntax and Snippets](https://marketplace.visualstudio.com/items?itemName=stevejpurves.cucumber)
