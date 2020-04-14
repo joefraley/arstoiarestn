@@ -7,6 +7,8 @@ import ReactDOM from "react-dom"
 import { BrowserRouter } from "react-router-dom"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "@apollo/react-hooks"
+import { ThemeProvider } from "styled-components"
+import { theme, Reset, TypeSettings } from "./styles"
 import Main from "./main"
 import "./locales"
 
@@ -20,6 +22,13 @@ const client = new ApolloClient({
         })
     },
 })
+
+const GlobalStyles = () => (
+    <>
+        <Reset />
+        <TypeSettings />
+    </>
+)
 
 /**
  * React Root
@@ -36,7 +45,10 @@ const client = new ApolloClient({
 ReactDOM.render(
     <BrowserRouter>
         <ApolloProvider client={client}>
-            <Main />
+            <ThemeProvider theme={theme}>
+                <GlobalStyles />
+                <Main />
+            </ThemeProvider>
         </ApolloProvider>
     </BrowserRouter>,
     document.getElementById("root"),

@@ -3,7 +3,19 @@
  * -----------------------------------------------------------------------------
  */
 import React from "react"
-import "styles/base.scss"
+import styled from "styled-components"
+
+const StyledContainer = styled.div`
+    align-items: center;
+    background: ${({ theme }) => theme.palette.grey[100]};
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    justify-content: center;
+    padding: ${({ theme }) => theme.spacing.md};
+    text-align: center;
+    width: 100%;
+`
 
 /**
  * Component
@@ -11,11 +23,11 @@ import "styles/base.scss"
  */
 const FourOhFour: React.FC = () => {
     return (
-        <div id="jo-four-oh-four">
+        <StyledContainer id="jo-four-oh-four">
             <img src="/img/cat_color.png" alt="Sleepy cat" width="240px" />
-            <h1 className="my-xs">404</h1>
-            <h5 className="mt-xs">Oops! Could not find this page</h5>
-        </div>
+            <h1>404</h1>
+            <h5>Oops! Could not find this page</h5>
+        </StyledContainer>
     )
 }
 
