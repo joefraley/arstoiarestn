@@ -13,8 +13,8 @@ const SvgFamily = props => (
         {...props}
     >
         <g id="fills">
-            <circle fill={props.secondaryColor} cx={8.4} cy={7.1} r={3.9} />
-            <path fill={props.secondaryColor} d="M15.4,21c0-3.9-3.2-7.1-7.1-7.1S1.3,17.1,1.3,21H15.4z" />
+            <circle fill={props.secondarycolor} cx={8.4} cy={7.1} r={3.9} />
+            <path fill={props.secondarycolor} d="M15.4,21c0-3.9-3.2-7.1-7.1-7.1S1.3,17.1,1.3,21H15.4z" />
         </g>
         <g id="lines">
             <path

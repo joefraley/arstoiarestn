@@ -14,7 +14,7 @@ const SvgChat = props => (
     >
         <g>
             <path
-                fill={props.secondaryColor}
+                fill={props.secondarycolor}
                 d="M4.2,18.6c-1.8,0-3.2-1.4-3.2-3V5c0-1.7,1.5-3,3.2-3h15.5C21.5,2,23,3.3,23,5v10.6c0,1.7-1.5,3-3.2,3h-2.5 L16.9,22l-6-3.4H4.2z"
             />
             <path

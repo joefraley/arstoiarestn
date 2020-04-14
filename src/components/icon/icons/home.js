@@ -12,7 +12,7 @@ const SvgHome = props => (
         width={props.height}
         {...props}
     >
-        <polygon fill={props.secondaryColor} points="3,23 3,11 12,2 21,11 21,23 " />
+        <polygon fill={props.secondarycolor} points="3,23 3,11 12,2 21,11 21,23 " />
         <polyline
             fill="none"
             stroke={props.color}

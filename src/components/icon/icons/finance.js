@@ -13,7 +13,7 @@ const SvgFinance = props => (
         {...props}
     >
         <g>
-            <ellipse fill={props.secondaryColor} cx={12} cy={12} rx={11} ry={11} />
+            <ellipse fill={props.secondarycolor} cx={12} cy={12} rx={11} ry={11} />
             <ellipse
                 fill="none"
                 stroke={props.color}

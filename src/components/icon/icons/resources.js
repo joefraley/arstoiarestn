@@ -12,7 +12,7 @@ const SvgResources = props => (
         width={props.height}
         {...props}
     >
-        <rect x={1.1} y={7.5} fill={props.secondaryColor} width={21.6} height={14} />
+        <rect x={1.1} y={7.5} fill={props.secondarycolor} width={21.6} height={14} />
         <g>
             <path
                 fill="none"
