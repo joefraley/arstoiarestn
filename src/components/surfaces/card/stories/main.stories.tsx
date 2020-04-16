@@ -1,6 +1,9 @@
 import React from "react"
-import { withA11y } from "@storybook/addon-a11y"
 import Card from ".."
 
-export default { title: "Surfaces.Card", decorators: [withA11y] }
-export const withText = () => <Card>I am a card</Card>
+export default { title: "Surfaces/Card" }
+export const withText = () => (
+    <div style={{ flex: "1 1 auto" }}>
+        <Card>I am a card</Card>
+    </div>
+)

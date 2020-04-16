@@ -1,10 +1,7 @@
 import React from "react"
-import { withA11y } from "@storybook/addon-a11y"
 import { storiesOf } from "@storybook/react"
 import requireContext from "require-context.macro"
 import Icon from ".."
-
-export default { title: "Icons", decorators: [withA11y] }
 
 const findIcons = () => {
     let iconNames = []
@@ -25,10 +22,24 @@ storiesOf("Icons", module).add("all", () => {
                 display: "grid",
                 gridTemplateColumns: "repeat(12, 1fr)",
                 gridGap: "1rem",
+                flex: "1 1 auto",
             }}
         >
-            {icons.map(name => {
-                return <Icon type={name} />
+            {icons.map((name, index) => {
+                return (
+                    <div
+                        style={{
+                            display: "flex",
+                            flexFlow: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            wordBreak: "break-all",
+                        }}
+                    >
+                        <Icon key={`${name}-${index}`} type={name} />
+                        <span style={{ padding: "1rem" }}>{name}</span>
+                    </div>
+                )
             })}
         </div>
     )

@@ -5,7 +5,7 @@
     "scripts": {
         "build": "npm run build:app && npm run build:storybook",
         "build:app": "GIT_SHA=`git rev-parse HEAD` react-scripts build",
-        "build:storybook": "STORYBOOK_CURRENT_SOURCE_CODE=`git rev-parse HEAD` build-storybook -s ./public -o ./styleguide",
+        "build:storybook": "GIT_SHA=`git rev-parse HEAD` build-storybook -s ./public -o ./styleguide",
         "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
         "start": "react-scripts start",
         "storybook": "start-storybook -p 9009 -s public",
@@ -31,6 +31,7 @@
     "devDependencies": {
         "@storybook/addon-a11y": "5.3.18",
         "@storybook/addon-actions": "5.3.18",
+        "@storybook/addon-knobs": "^5.3.18",
         "@storybook/addon-links": "5.3.18",
         "@storybook/addon-storyshots": "5.3.18",
         "@storybook/addon-storyshots-puppeteer": "5.3.18",

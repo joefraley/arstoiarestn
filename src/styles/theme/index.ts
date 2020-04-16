@@ -5,16 +5,21 @@ import { modularScale, rgba } from "polished"
 
 export const Reset = createGlobalStyle`
     body, #root {
+        align-items: stretch;
+        display: flex;
+        flex-flow: column;
         height: 100vh;
-        width: 100vw;
+        justify-content: stretch;
         overflow: hidden;
+        width: 100vw;
     }
 
-    * {
+    body, #root, * {
+        border: none;
         box-sizing: border-box;
         margin: 0;
+        outline: none;
         padding: 0;
-        border: none;
     }
 `
 

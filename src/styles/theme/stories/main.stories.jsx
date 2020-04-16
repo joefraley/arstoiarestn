@@ -1,16 +1,16 @@
-import React, { Fragment } from "react"
-import { withA11y } from "@storybook/addon-a11y"
+import React from "react"
 import theme from ".."
-export default { title: "Variables", decorators: [withA11y] }
+export default { title: "Variables" }
 
 export const Colors = () => {
     return (
         <div
             style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                gridTemplateRows: "repeat(auto-fit, minmax(150px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, 1fr))",
+                gridTemplateRows: "repeat(auto-fit, 1fr))",
                 gridGap: "1rem",
+                flex: "1 1 auto",
             }}
         >
             {Object.keys(theme.palette)
@@ -40,7 +40,6 @@ export const Colors = () => {
                         },
                     )
                 })}
-            )}
         </div>
     )
 }
