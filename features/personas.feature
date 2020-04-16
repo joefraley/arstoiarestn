@@ -15,6 +15,8 @@ Feature: personas
 
   Scenario: Primary Regence health plan member with dependents
     Given I am Morticia Addams, an employee with the Regence health plan who has dependents
+    And Wednesday is Morticia's dependent
+    And Pugsley is Morticia's dependent
     Then I have this group ID:
       | GroupID | TBD |
     And I have this Member ID:
