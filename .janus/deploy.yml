@@ -1,25 +1,25 @@
 format_version: 2
 stack_name: journi-web-app
 resources_I_provision:
-    s3_buckets:
-        - bucket_name: master
-          bucket_contents_path: ./build/
-        - bucket_name: styleguide
-          bucket_contents_path: ./styleguide/
-    cloudfront_distributions:
-      - distribution_name: journi-web-app
-          default_cache_behavior:
-            origin:
-              bucket_name: master
-          aliases_from_parameter: true
-          certificate_from_parameter: true
-          default_root_object: index.html
-          custom_error_responses:
-            - &error-response
-              error_code: 403
-              response_code: 200
-              response_page_path: index.html
-      - bucket_name: styleguide
-        default_root_object: index.html
-        custom_error_responses:
-            - *error-response
+  s3_buckets:
+    - bucket_name: master
+      bucket_contents_path: ./build/
+    - bucket_name: styleguide
+      bucket_contents_path: ./styleguide/
+  cloudfront_distributions:
+    - distribution_name: journi-web-app
+      default_cache_behavior:
+        origin:
+          bucket_name: master
+      aliases_from_parameter: true
+      certificate_from_parameter: true
+      default_root_object: index.html
+      custom_error_responses:
+        - &error-response
+          error_code: 403
+          response_code: 200
+          response_page_path: index.html
+    - bucket_name: styleguide
+      default_root_object: index.html
+      custom_error_responses:
+        - *error-response
