@@ -7,6 +7,8 @@ resources_I_provision:
         - bucket_name: styleguide
           bucket_contents_path: ./styleguide/
     cloudfront_distributions:
+        - aliases_from_parameter: true
+          certificate_from_parameter: true
         - bucket_name: master
           default_root_object: index.html
           custom_error_responses:
