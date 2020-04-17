@@ -7,6 +7,7 @@ resources_I_provision:
         - bucket_name: styleguide
           bucket_contents_path: ./styleguide/
     cloudfront_distributions:
+        - distribution_name: journi-web-app
         - aliases_from_parameter: true
           certificate_from_parameter: true
         - bucket_name: master
