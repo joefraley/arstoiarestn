@@ -6,15 +6,14 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledContainer = styled.div`
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(220px, 0.5fr));
+    overflow-y: scroll;
     background: ${({ theme }) => theme.palette.grey[100]};
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    justify-content: center;
     padding: ${({ theme }) => theme.spacing.md};
     text-align: center;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
 `
 
 /**
@@ -24,7 +23,7 @@ const StyledContainer = styled.div`
 const FourOhFour: React.FC = () => {
     return (
         <StyledContainer id="jo-four-oh-four">
-            <img src="/img/cat_color.png" alt="Sleepy cat" width="240px" />
+            <img src="/img/cat_color.png" alt="Sleepy cat" />
             <h1>404</h1>
             <h5>Oops! Could not find this page</h5>
         </StyledContainer>

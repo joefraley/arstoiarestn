@@ -4,7 +4,8 @@
  */
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { Button } from "components"
+import { Button, Row } from "components"
+import { alignment } from "components/layout/types"
 
 /**
  * Component
@@ -36,11 +37,12 @@ const Header: React.FC = props => {
      * Template
      */
     return (
-        <div className="bg-white p-xs text-right">
+        <Row as="header" horizontal={alignment.End} {...props}>
             <Button
                 name="header-account-button"
                 variant="link"
                 icon="bell"
+                style={{ flexGrow: 0, padding: "0.5rem" }}
                 onClick={() => false}
             />
             <Button
@@ -48,15 +50,16 @@ const Header: React.FC = props => {
                 variant="link"
                 icon="globe"
                 onClick={onChangeTranslation}
-                className="mr-xxs"
+                style={{ flexGrow: 0, padding: "0.5rem" }}
             />
             <Button
                 name="header-signout-button"
                 variant="secondary"
                 label={t("base.signOut")}
+                style={{ flexGrow: 0, padding: "0.5rem" }}
                 onClick={() => false}
             />
-        </div>
+        </Row>
     )
 }
 

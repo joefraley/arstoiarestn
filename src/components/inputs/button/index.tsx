@@ -27,7 +27,7 @@ const variants = {
         color: ${({ theme }) => theme.palette.primary.contrastText};
     `,
     secondary: css`
-        background: ${({ theme }) => theme.palette.secondary.dark};
+        background: ${({ theme }) => theme.palette.secondary.light};
         color: ${({ theme }) => theme.palette.secondary.contrastText};
     `,
     link: css`
@@ -44,7 +44,6 @@ const sizes = {
         border-radius: ${({ theme }) => theme.shape.borderRadius.sm};
         font-size: ${modularScale(-2, "1rem", "perfectFourth")};
         height: ${({ theme }) => theme.spacing.sm};
-        line-height: ${({ theme }) => theme.spacing.sm};
         padding-left: ${({ theme }) => theme.spacing.xss};
         padding-right: ${({ theme }) => theme.spacing.xss};
     `,
@@ -52,7 +51,6 @@ const sizes = {
         border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
         font-size: ${modularScale(1, "1rem", "perfectFourth")};
         height: ${({ theme }) => theme.spacing.lg};
-        line-height: ${({ theme }) => theme.spacing.lg};
         padding-left: ${({ theme }) => theme.spacing.xs};
         padding-right: ${({ theme }) => theme.spacing.xs};
     `,
@@ -65,12 +63,11 @@ const ButtonIcon = styled(Icon)`
 const Styles = styled(Row)<Props>`
     appearance: none;
     background: none;
-    border-radius: ${({ theme }) => theme.shape.borderRadius.md};
+    border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
     font-family: ${({ theme }) => theme.typography.button.fontFamily};
     font-size: ${({ theme }) => theme.typography.button.fontSize};
     font-weight: ${({ theme }) => theme.typography.button.fontWeight};
-    height: ${({ theme }) => theme.spacing.md};
-    line-height: ${({ theme }) => theme.spacing.md};
+    height: ${({ theme }) => theme.spacing.lg};
     overflow: visible;
     padding-left: ${({ theme }) => theme.spacing.xs};
     padding-right: ${({ theme }) => theme.spacing.xs};
@@ -94,23 +91,14 @@ const Styles = styled(Row)<Props>`
     ${ButtonIcon} {
         flex-grow: 0;
         flex-shrink: 1;
-        height: ${({ size = "medium", theme }) =>
-            size === "large"
-                ? theme.spacing.lg
-                : size === "medium"
-                ? theme.spacing.md
-                : theme.spacing.sm};
+
         padding-left: 0;
         padding-right: 0;
         text-align: center;
-        width:  ${({ size = "medium", theme }) =>
-            size === "large"
-                ? theme.spacing.lg
-                : size === "medium"
-                ? theme.spacing.md
-                : theme.spacing.sm};
+
         svg {
             position: relative;
+            flex-grow: 0;
             flex-shrink: 1;
             top: ${({ size = "medium" }) => {
                 const sizes = {
@@ -125,11 +113,16 @@ const Styles = styled(Row)<Props>`
 `
 
 const ButtonLabel = styled.span`
+    align-item: center;
     color: currentcolor;
+    display: inline-flex;
     flex-grow: 0;
-    padding-right: 1rem;
+    font-size: inherit;
+    justify-content: center;
     padding-left: 1rem;
+    padding-right: 1rem;
     text-align: left;
+    vertical-align: middle;
 `
 
 const Button: React.FunctionComponent<Props> = ({
@@ -141,18 +134,21 @@ const Button: React.FunctionComponent<Props> = ({
     onClick,
     size = "medium",
     variant = "primary",
+    ...props
 }) => {
     const iconSizes = { large: 24, medium: 20, small: 16 }
     return (
         <Styles
             as="button"
             data-test={name}
+            grow={0}
             id={name}
             inverted={inverted}
             onClick={onClick}
             size={size}
             type="button"
             variant={variant}
+            {...props}
         >
             {icon && (
                 <ButtonIcon
@@ -161,7 +157,7 @@ const Button: React.FunctionComponent<Props> = ({
                     type={icon}
                 />
             )}
-            <ButtonLabel>{label && label}</ButtonLabel>
+            {label && <ButtonLabel>{label}</ButtonLabel>}
             {children && children}
         </Styles>
     )

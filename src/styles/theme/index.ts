@@ -21,6 +21,12 @@ export const Reset = createGlobalStyle`
         outline: none;
         padding: 0;
     }
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
 `
 
 const family = `"effra", "Helvetica Neue", "Arial", sans-serif`
@@ -101,7 +107,7 @@ const theme = {
             main: colors.purple.main,
         },
         secondary: {
-            contrastText: colors.white,
+            contrastText: colors.purple.medium,
             dark: colors.grey[900],
             light: colors.grey[200],
             main: colors.grey[600],
@@ -411,7 +417,7 @@ const theme = {
         button: {
             fontFamily: family,
             fontWeight: 500,
-            fontSize: modularScale(-1, "1rem", "perfectFourth"),
+            fontSize: modularScale(0, "1rem", "perfectFourth"),
             lineHeight: modularScale(1, 1, "minorSecond"),
             letterSpacing: "0.02857rem",
             textTransform: "uppercase",

@@ -8,62 +8,69 @@ import { useTranslation } from "react-i18next"
 import { Button, Column } from "components"
 import { alignment } from "components/layout/types"
 import { IconTypes } from "components/icon/types"
+import styled, { useTheme } from "styled-components"
+
+const BrandImage = styled.div`
+    flex-grow: 0;
+    padding: ${({ theme }) => `${theme.spacing.xxs} 0`};
+`
+
+const StyledNav = styled(Column).attrs({ as: "nav" })`
+    color: ${({ theme }) => theme.palette.common.white};
+    align-self: ${alignment.Stretch};
+    padding: ${({ theme }) => `${theme.spacing.xxs} 0`};
+`
 
 const Sidebar: React.FC = props => {
     const { t } = useTranslation()
 
     return (
-        <div id="jo-sidebar">
-            <div className="py-sm px-sm">
-                <img
-                    src="/img/brand_wordmark_inverted.png"
-                    alt="Journi"
-                    width="100%"
-                />
-            </div>
-            <Column
-                as="nav"
+        <Column vertical={alignment.Start} as="aside" {...props}>
+            <BrandImage>
+                <img src="/img/brand_wordmark_inverted.png" alt="Journi" />
+            </BrandImage>
+            <StyledNav
+                vertical={alignment.Stretch}
                 horizontal={alignment.Stretch}
-                style={{ color: "white" }}
             >
                 <SidebarButton
-                    name="sidebar-home-button"
-                    label={t("base.home")}
-                    icon="home"
                     destination="/home"
+                    icon="home"
+                    label={t("base.home")}
+                    name="sidebar-home-button"
                 />
                 <SidebarButton
-                    name="sidebar-profiles-button"
-                    label={t("base.profiles")}
-                    icon="family"
                     destination="/profiles"
+                    icon="family"
+                    label={t("base.profiles")}
+                    name="sidebar-profiles-button"
                 />
                 <SidebarButton
-                    name="sidebar-resources-button"
-                    label={t("base.resources")}
-                    icon="resources"
                     destination="/resources"
+                    icon="resources"
+                    label={t("base.resources")}
+                    name="sidebar-resources-button"
                 />
                 <SidebarButton
-                    name="sidebar-finances-button"
-                    label={t("base.finances")}
-                    icon="finance"
                     destination="/finances"
+                    icon="finance"
+                    label={t("base.finances")}
+                    name="sidebar-finances-button"
                 />
                 <SidebarButton
-                    name="sidebar-connect-button"
-                    label={t("base.connect")}
-                    icon="chat"
                     destination="/connect"
+                    icon="chat"
+                    label={t("base.connect")}
+                    name="sidebar-connect-button"
                 />
                 <SidebarButton
-                    name="sidebar-settings-button"
-                    label={t("base.settings")}
-                    icon="settings"
                     destination="/settings"
+                    icon="settings"
+                    label={t("base.settings")}
+                    name="sidebar-settings-button"
                 />
-            </Column>
-        </div>
+            </StyledNav>
+        </Column>
     )
 }
 
@@ -78,8 +85,7 @@ const SidebarButton: React.FC<{
     readonly icon: IconTypes
 }> = props => {
     const history = useHistory()
-
-    const styles = "jo-sidebar-button py-xs px-sm "
+    const theme: any = useTheme()
     const activeStyle = matchPath(history.location.pathname, {
         path: props.destination,
         exact: true,
@@ -89,7 +95,13 @@ const SidebarButton: React.FC<{
 
     return (
         <Button
-            className={styles + activeStyle}
+            style={{
+                justifyContent: alignment.Start,
+                padding: 0,
+                flexGrow: 0,
+                marginBottom: theme.spacing.xxs,
+            }}
+            className={activeStyle}
             icon={props.icon}
             label={props.label}
             name={props.name}

@@ -6,40 +6,35 @@ import React from "react"
 import styled from "styled-components"
 import Sidebar from "./components/sidebar"
 import Header from "./components/header"
+import { Row } from "components"
 
-const StyledContainer = styled.div`
+const StyledSidebar = styled(Sidebar)``
+const StyledHeader = styled(Header)``
+
+const StyledContainer = styled(Row)`
     background: ${({ theme }) => theme.palette.background.default};
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "nav header"
+        "nav main";
+    grid-template-columns: minmax(190px, 200px) 1fr;
+    grid-template-rows: min-content 1fr;
 
-    #jo-content {
-        display: flex;
-        flex-flow: column;
-        flex: 1;
-    }
-
-    #jo-sidebar {
+    ${StyledSidebar} {
+        align-self: stretch;
         background: ${({ theme }) => theme.palette.primary.main};
-        height: 100%;
-        min-width: 190px;
-        width: 200px;
+        grid-area: nav;
+        padding: ${({ theme }) => `0 ${theme.spacing.xs}`};
     }
 
-    .jo-sidebar-button {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        span {
-            color: ${({ theme }) => theme.palette.common.white};
-        }
-        &.active {
-            background: ${({ theme }) => theme.palette.action.active};
-        }
+    ${StyledHeader} {
+        grid-area: header;
+        padding: ${({ theme }) => theme.spacing.xxs};
+        background: white;
+    }
+
+    main {
+        grid-area: main;
     }
 `
 
@@ -49,12 +44,10 @@ const StyledContainer = styled.div`
  */
 const Layout: React.FC = props => {
     return (
-        <StyledContainer id="jo-app">
-            <Sidebar />
-            <div id="jo-content">
-                <Header />
-                {props.children}
-            </div>
+        <StyledContainer>
+            <StyledSidebar />
+            <StyledHeader />
+            <main>{props.children}</main>
         </StyledContainer>
     )
 }

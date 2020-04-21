@@ -16,10 +16,18 @@ const Icon: React.FC<Props> = ({
     inverted = false,
     color = "currentcolor",
     secondaryColor = "transparent",
+    ...props
 }) => {
     const SVG = Icons[type]
 
-    return <SVG height={size} color={color} secondarycolor={secondaryColor} />
+    return (
+        <SVG
+            {...props}
+            height={size}
+            color={color}
+            secondarycolor={secondaryColor}
+        />
+    )
 }
 
 export default Icon
