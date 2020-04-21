@@ -24,9 +24,9 @@ const findIcons = () => {
 const icons = findIcons()
 
 export const playground = () => {
-    const name = Knobs.text("name", "")
-    const label = Knobs.text("label", "")
-    const title = Knobs.text("title", "")
+    const name = Knobs.text("name", "analytics identifier")
+    const label = Knobs.text("label", "button text")
+    const title = Knobs.text("title", "a11y identifier")
     const variant = Knobs.select(
         "variant",
         ["primary", "secondary", "link", "content"],

@@ -333,7 +333,6 @@ const theme = {
     typography: {
         htmlFontSize: 16,
         fontFamily: `"effra", "Helvetica Neue", "Arial", sans-serif`,
-        fontSize: 14,
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,
@@ -437,6 +436,7 @@ const theme = {
     },
     shape: {
         borderRadius: {
+            sm: "0.75rem",
             md: "1rem",
             lg: "1.5rem",
         },
@@ -449,6 +449,11 @@ const theme = {
 }
 
 export const TypeSettings = createGlobalStyle`
+    html {
+        ${props => `
+            font-size: ${props.theme.typography.htmlFontSIze}
+        `}
+    }
     body {
         ${props => css`
             ${props.theme.typography.body1}
