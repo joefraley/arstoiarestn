@@ -1,30 +1,14 @@
-/**
- * Header
- * -----------------------------------------------------------------------------
- */
 import React from "react"
+import styled from "styled-components"
 import { useTranslation } from "react-i18next"
 import { Button, Row } from "components"
 import { alignment } from "components/layout/types"
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
 const Header: React.FC = props => {
-    /**
-     * Hooks
-     */
     const { t, i18n } = useTranslation()
 
-    /**
-     * Component State
-     */
     const [language, setLanguage] = React.useState<string>("en-Us")
 
-    /**
-     * Methods
-     */
     const onChangeTranslation = () => {
         // Toggle between English/Spanish
         // TODO: Make this a dropdown - consult UX
@@ -33,9 +17,6 @@ const Header: React.FC = props => {
         i18n.changeLanguage(newLanguage)
     }
 
-    /**
-     * Template
-     */
     return (
         <Row as="header" horizontal={alignment.End} {...props}>
             <Button
@@ -63,8 +44,7 @@ const Header: React.FC = props => {
     )
 }
 
-/**
- * Export
- * -----------------------------------------------------------------------------
- */
-export default Header
+export default styled(Header)`
+    padding: ${({ theme }) => theme.spacing.xxs};
+    background: ${({ theme }) => theme.palette.common.white};
+`

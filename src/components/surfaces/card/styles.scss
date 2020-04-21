@@ -2,8 +2,8 @@
 
 .journi-card {
     @include card-shadow;
-    width: 100%;
     background: $white;
     padding: $spacing-sm;
     border-radius: $border-radius;
+    flex-grow: 0;
 }

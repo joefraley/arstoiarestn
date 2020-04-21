@@ -1,14 +1,10 @@
-/**
- * Sidebar
- * -----------------------------------------------------------------------------
- */
 import React from "react"
 import { useHistory, matchPath } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { Button, Column } from "components"
 import { alignment } from "components/layout/types"
 import { IconTypes } from "components/icon/types"
-import styled, { useTheme } from "styled-components"
+import styled from "styled-components"
 
 const BrandImage = styled.div`
     flex-grow: 0;
@@ -74,45 +70,43 @@ const Sidebar: React.FC = props => {
     )
 }
 
-/**
- * Subcomponent: <SidebarButton />
- * -----------------------------------------------------------------------------
- */
+const SidebarButtonStyles = styled(Button)`
+    justify-content: ${alignment.Start};
+    padding: 0;
+    flex-grow: 0;
+    margin-bottom: ${({ theme }) => theme.spacing.xxs};
+
+    &.active {
+    }
+`
 const SidebarButton: React.FC<{
     readonly name: string
     readonly label: string
     readonly destination: string
     readonly icon: IconTypes
-}> = props => {
+}> = ({ icon, label, name, destination }) => {
     const history = useHistory()
-    const theme: any = useTheme()
-    const activeStyle = matchPath(history.location.pathname, {
-        path: props.destination,
+    const active = matchPath(history.location.pathname, {
+        path: destination,
         exact: true,
     })
         ? "active"
         : ""
 
     return (
-        <Button
-            style={{
-                justifyContent: alignment.Start,
-                padding: 0,
-                flexGrow: 0,
-                marginBottom: theme.spacing.xxs,
-            }}
-            className={activeStyle}
-            icon={props.icon}
-            label={props.label}
-            name={props.name}
-            onClick={() => history.push(props.destination)}
+        <SidebarButtonStyles
+            className={active}
+            icon={icon}
+            label={label}
+            name={name}
+            onClick={() => history.push(destination)}
             variant="content"
         />
     )
 }
 
-/**
- * Export
- * -----------------------------------------------------------------------------
- */
-export default Sidebar
+export default styled(Sidebar)`
+    align-self: stretch;
+    background: ${({ theme }) => theme.palette.primary.main};
+    padding: ${({ theme }) => `0 ${theme.spacing.xs}`};
+`

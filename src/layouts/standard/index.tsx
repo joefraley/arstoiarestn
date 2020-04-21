@@ -1,15 +1,8 @@
-/**
- * Layout
- * -----------------------------------------------------------------------------
- */
 import React from "react"
 import styled from "styled-components"
 import Sidebar from "./components/sidebar"
 import Header from "./components/header"
 import { Row } from "components"
-
-const StyledSidebar = styled(Sidebar)``
-const StyledHeader = styled(Header)``
 
 const StyledContainer = styled(Row)`
     background: ${({ theme }) => theme.palette.background.default};
@@ -20,17 +13,12 @@ const StyledContainer = styled(Row)`
     grid-template-columns: minmax(190px, 200px) 1fr;
     grid-template-rows: min-content 1fr;
 
-    ${StyledSidebar} {
-        align-self: stretch;
-        background: ${({ theme }) => theme.palette.primary.main};
+    ${Sidebar} {
         grid-area: nav;
-        padding: ${({ theme }) => `0 ${theme.spacing.xs}`};
     }
 
-    ${StyledHeader} {
+    ${Header} {
         grid-area: header;
-        padding: ${({ theme }) => theme.spacing.xxs};
-        background: white;
     }
 
     main {
@@ -38,22 +26,14 @@ const StyledContainer = styled(Row)`
     }
 `
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
-const Layout: React.FC = props => {
+const Layout: React.FC = ({ children }) => {
     return (
         <StyledContainer>
-            <StyledSidebar />
-            <StyledHeader />
-            <main>{props.children}</main>
+            <Sidebar />
+            <Header />
+            <main>{children}</main>
         </StyledContainer>
     )
 }
 
-/**
- * Export
- * -----------------------------------------------------------------------------
- */
 export default Layout
