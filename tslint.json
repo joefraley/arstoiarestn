@@ -106,7 +106,7 @@
         ],
         "no-var-keyword": true,
         "readonly-keyword": true,
-        "readonly-array": true,
+        "readonly-array": false,
         "no-let": true,
         "no-mixed-interface": true
     }

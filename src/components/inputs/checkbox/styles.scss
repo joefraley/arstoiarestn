@@ -1,0 +1,72 @@
+/**
+ * Button Styles
+ * -----------------------------------------------------------------------------
+ */
+@import "styles/variables";
+
+/**
+  * Defaults
+  */
+.journi-checkbox {
+    input {
+        display: inline-block;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    label {
+        display: inline-block;
+        margin: 5px auto auto 12px;
+        font-size: 16px;
+        width: 254px;
+        vertical-align: top;
+        color: #282831;
+    }
+    &.journi-checkbox-primary {
+        input {
+            background-image: url("../../../assets/svg/checkboxes/checkbox-unchecked.svg");
+        }
+        input:checked {
+            background-image: url("../../../assets/svg/checkboxes/checkbox-checked.svg");
+        }
+    }
+    &.journi-checkbox-inverted {
+        label {
+            color: #ffffff;
+        }
+    }
+    &.journi-checkbox-inverted {
+        input {
+            background-image: url("../../../assets/svg/checkboxes/inverted-checkbox-unchecked.svg");
+        }
+
+        input:checked {
+            background-image: url("../../../assets/svg/checkboxes/inverted-checkbox-checked.svg");
+        }
+    }
+
+    &.journi-checkbox-switch {
+        input {
+            width: 56px;
+            height: 24px;
+            background-image: url("../../../assets/svg/checkboxes/switch-checkbox-unchecked.svg");
+        }
+
+        input:checked {
+            background-image: url("../../../assets/svg/checkboxes/switch-checkbox-checked.svg");
+        }
+    }
+
+    &.journi-checkbox-switch.journi-checkbox-inverted {
+        input {
+            background-image: url("../../../assets/svg/checkboxes/switch-inverted-checkbox-unchecked.svg");
+        }
+
+        input:checked {
+            background-image: url("../../../assets/svg/checkboxes/switch-inverted-checkbox-checked.svg");
+        }
+    }
+}
