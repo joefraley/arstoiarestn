@@ -17,21 +17,21 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
     readonly variant?: "primary" | "secondary" | "link" | "content"
     readonly size?: "small" | "medium" | "large"
     readonly icon?: IconTypes
-    readonly inverted?: string
+    readonly inverted?: boolean
 }
 
 const variants = {
     primary: css`
         background: ${({ theme }) => theme.palette.primary.main};
-        color: ${({ theme }) => theme.palette.common.white};
+        color: ${({ theme }) => theme.palette.primary.contrastText};
     `,
     secondary: css`
-        background: rgba($warm-gray-900, 0.3);
-        color: $primary;
+        background: ${({ theme }) => theme.palette.secondary.dark};
+        color: ${({ theme }) => theme.palette.secondary.contrastText};
     `,
     link: css`
         background: transparent;
-        color: $primary;
+        color: ${({ theme }) => theme.palette.primary.main};
     `,
 }
 
@@ -41,16 +41,16 @@ const sizes = {
         font-size: 0.875rem;
         height: 1.5rem;
         line-height: 1.5rem;
-        padding-left: $spacing-xxs;
-        padding-right: $spacing-xxs;
+        padding-left: ${({ theme }) => theme.spacing.xss};
+        padding-right: ${({ theme }) => theme.spacing.xss};
     `,
     large: css`
         border-radius: 1.25rem;
         font-size: 1rem;
         height: 2.5rem;
         line-height: 2.5rem;
-        padding-left: $spacing-xs;
-        padding-right: $spacing-xs;
+        padding-left: ${({ theme }) => theme.spacing.xs};
+        padding-right: ${({ theme }) => theme.spacing.xs};
     `,
 }
 
@@ -72,7 +72,7 @@ const Styles = styled.button<Props>`
 
     &:hover,
     &:focus {
-        background: ${({ theme }) => theme.palette.action.hover};
+        opaciy: ${({ theme }) => theme.palette.action.hover};
     }
     &:active {
         transform: translateY(1px);
@@ -116,7 +116,13 @@ const Button: React.FunctionComponent<Props> = ({
 }) => {
     const iconSizes = { large: 24, medium: 20, small: 16 }
     return (
-        <Styles id={name} data-test={name} type="button" onClick={onClick}>
+        <Styles
+            id={name}
+            variant={variant}
+            data-test={name}
+            type="button"
+            onClick={onClick}
+        >
             {label && label}
             {icon && (
                 <ButtonIcon

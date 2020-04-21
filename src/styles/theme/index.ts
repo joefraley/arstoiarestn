@@ -142,12 +142,12 @@ const theme = {
             default: colors.grey[100],
         },
         action: {
-            active: rgba(colors.grey[900], 0.54),
-            disabled: rgba(colors.grey[900], 0.26),
-            disabledBackground: rgba(colors.grey[900], 0.12),
-            focus: rgba(colors.grey[900], 0.12),
-            hover: rgba(colors.grey[900], 0.04),
-            selected: rgba(colors.grey[900], 0.08),
+            active: 0.54,
+            disabled: 0.26,
+            disabledBackground: 0.12,
+            focus: 0.12,
+            hover: 0.04,
+            selected: 0.08,
         },
     },
     shadows: [
