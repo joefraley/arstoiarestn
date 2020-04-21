@@ -5,22 +5,13 @@
 import React from "react"
 import { useHistory, matchPath } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { Button, Icon } from "components"
+import { Button, Column } from "components"
+import { alignment } from "components/layout/types"
 import { IconTypes } from "components/icon/types"
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
 const Sidebar: React.FC = props => {
-    /**
-     * Hooks
-     */
     const { t } = useTranslation()
 
-    /**
-     * Template
-     */
     return (
         <div id="jo-sidebar">
             <div className="py-sm px-sm">
@@ -30,7 +21,11 @@ const Sidebar: React.FC = props => {
                     width="100%"
                 />
             </div>
-            <nav>
+            <Column
+                as="nav"
+                horizontal={alignment.Stretch}
+                style={{ color: "white" }}
+            >
                 <SidebarButton
                     name="sidebar-home-button"
                     label={t("base.home")}
@@ -67,7 +62,7 @@ const Sidebar: React.FC = props => {
                     icon="settings"
                     destination="/settings"
                 />
-            </nav>
+            </Column>
         </div>
     )
 }
@@ -82,15 +77,8 @@ const SidebarButton: React.FC<{
     readonly destination: string
     readonly icon: IconTypes
 }> = props => {
-    /**
-     * Define hooks
-     */
     const history = useHistory()
 
-    /**
-     * Determine button styles
-     * TODO: Support active state for child routes
-     */
     const styles = "jo-sidebar-button py-xs px-sm "
     const activeStyle = matchPath(history.location.pathname, {
         path: props.destination,
@@ -99,19 +87,15 @@ const SidebarButton: React.FC<{
         ? "active"
         : ""
 
-    /**
-     * Template
-     */
     return (
         <Button
-            name={props.name}
-            variant="content"
-            onPress={() => history.push(props.destination)}
             className={styles + activeStyle}
-        >
-            <Icon type={props.icon} inverted={true} />
-            <span className="ml-xxs">{props.label}</span>
-        </Button>
+            icon={props.icon}
+            label={props.label}
+            name={props.name}
+            onClick={() => history.push(props.destination)}
+            variant="content"
+        />
     )
 }
 

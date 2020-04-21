@@ -6,7 +6,7 @@
  * -----------------------------------------------------------------------------
  */
 import React from "react"
-import { Icon } from "components"
+import { Icon, Row } from "components"
 import { IconTypes } from "components/icon/types"
 import styled, { css } from "styled-components"
 import { modularScale } from "polished"
@@ -34,6 +34,9 @@ const variants = {
         background: transparent;
         color: ${({ theme }) => theme.palette.primary.main};
     `,
+    content: css`
+        color: currentcolor;
+    `,
 }
 
 const sizes = {
@@ -59,26 +62,24 @@ const ButtonIcon = styled(Icon)`
     color: inherit;
 `
 
-const Styles = styled.button<Props>`
-    align-items: center;
+const Styles = styled(Row)<Props>`
     appearance: none;
     background: none;
     border-radius: ${({ theme }) => theme.shape.borderRadius.md};
-    display: inline-flex;
     font-family: ${({ theme }) => theme.typography.button.fontFamily};
     font-size: ${({ theme }) => theme.typography.button.fontSize};
     font-weight: ${({ theme }) => theme.typography.button.fontWeight};
     height: ${({ theme }) => theme.spacing.md};
-    justify-content: center;
     line-height: ${({ theme }) => theme.spacing.md};
     overflow: visible;
     padding-left: ${({ theme }) => theme.spacing.xs};
     padding-right: ${({ theme }) => theme.spacing.xs};
+    cursor: pointer;
     text-transform: none;
 
     &:hover,
     &:focus {
-        opaciy: ${({ theme }) => theme.palette.action.hover};
+        opacity: ${({ theme }) => theme.palette.action.hover};
     }
     &:active {
         transform: translateY(1px);
@@ -91,6 +92,8 @@ const Styles = styled.button<Props>`
     }}
 
     ${ButtonIcon} {
+        flex-grow: 0;
+        flex-shrink: 1;
         height: ${({ size = "medium", theme }) =>
             size === "large"
                 ? theme.spacing.lg
@@ -108,6 +111,7 @@ const Styles = styled.button<Props>`
                 : theme.spacing.sm};
         svg {
             position: relative;
+            flex-shrink: 1;
             top: ${({ size = "medium" }) => {
                 const sizes = {
                     large: "7px",
@@ -118,6 +122,14 @@ const Styles = styled.button<Props>`
             }};
         }
     }
+`
+
+const ButtonLabel = styled.span`
+    color: currentcolor;
+    flex-grow: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: left;
 `
 
 const Button: React.FunctionComponent<Props> = ({
@@ -133,6 +145,7 @@ const Button: React.FunctionComponent<Props> = ({
     const iconSizes = { large: 24, medium: 20, small: 16 }
     return (
         <Styles
+            as="button"
             data-test={name}
             id={name}
             inverted={inverted}
@@ -141,7 +154,6 @@ const Button: React.FunctionComponent<Props> = ({
             type="button"
             variant={variant}
         >
-            {label && label}
             {icon && (
                 <ButtonIcon
                     inverted={variant === "primary"}
@@ -149,6 +161,7 @@ const Button: React.FunctionComponent<Props> = ({
                     type={icon}
                 />
             )}
+            <ButtonLabel>{label && label}</ButtonLabel>
             {children && children}
         </Styles>
     )

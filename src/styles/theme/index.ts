@@ -145,9 +145,9 @@ const theme = {
             active: 0.54,
             disabled: 0.26,
             disabledBackground: 0.12,
-            focus: 0.12,
-            hover: 0.04,
-            selected: 0.08,
+            focus: 0.88,
+            hover: 0.96,
+            selected: 0.92,
         },
     },
     shadows: [

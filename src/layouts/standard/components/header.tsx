@@ -41,20 +41,20 @@ const Header: React.FC = props => {
                 name="header-account-button"
                 variant="link"
                 icon="bell"
-                onPress={() => false}
+                onClick={() => false}
             />
             <Button
                 name="header-account-button"
                 variant="link"
                 icon="globe"
-                onPress={onChangeTranslation}
+                onClick={onChangeTranslation}
                 className="mr-xxs"
             />
             <Button
                 name="header-signout-button"
                 variant="secondary"
                 label={t("base.signOut")}
-                onPress={() => false}
+                onClick={() => false}
             />
         </div>
     )

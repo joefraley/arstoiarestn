@@ -28,6 +28,7 @@ storiesOf("Icons", module).add("all", () => {
             {icons.map((name, index) => {
                 return (
                     <div
+                        key={`${name}-${index}`}
                         style={{
                             display: "flex",
                             flexFlow: "column",

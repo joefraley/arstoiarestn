@@ -32,7 +32,7 @@ const Card: React.FunctionComponent<Props> = props => {
                 title="Click to see card details"
                 className={`journi-card ${props.className}`}
                 variant="content"
-                onPress={() => false}
+                onClick={() => false}
             >
                 {props.children && props.children}
             </Button>
