@@ -7,6 +7,7 @@ import { Row } from "components"
 const StyledContainer = styled(Row)`
     background: ${({ theme }) => theme.palette.background.default};
     display: grid;
+    height: 100%;
     grid-template-areas:
         "nav header"
         "nav main";
@@ -23,6 +24,8 @@ const StyledContainer = styled(Row)`
 
     main {
         grid-area: main;
+        overflow-y: scroll;
+        height: 100%;
     }
 `
 
