@@ -17,3 +17,13 @@ export interface FlexProps {
     readonly vertical?: alignment
     readonly wrap?: boolean
 }
+
+/*
+ * Syles props
+ * add optional variables as needed
+ */ 
+export interface StylesProp {
+    readonly backgroundColor?: string
+    readonly padding?: string
+    readonly width?: string
+}

@@ -5,8 +5,13 @@
 @import "styles/variables";
 
 .journi-checkbox {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: top;
+    flex-shrink: 1;
+
     input {
-        display: inline-block;
+        flex-shrink: 0;
         appearance: none;
         width: 25px;
         height: 25px;
@@ -15,10 +20,9 @@
     }
 
     label {
-        display: inline-block;
+        flex-shrink: 1;
         margin: 5px auto auto 12px;
         font-size: 16px;
-        width: 254px;
         vertical-align: top;
         color: #282831;
     }

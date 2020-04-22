@@ -13,12 +13,11 @@ import "./styles.scss"
 interface Props extends React.HTMLAttributes<HTMLCollection> {
     readonly onChange: VoidFunction
     readonly name: string // element name for analytics/testing
-    readonly className: string // className
+    readonly className?: string // className
     readonly label?: string // label text
-    readonly width?: number // a number for the width of the entire container
     readonly checked?: boolean // default checkbox checked state
     readonly inverted?: boolean // background white: inverted = false, background purple: inverted = true
-    readonly variant?: "primary" | "switch"
+    readonly variant?: string // "primary" | "switch"
 }
 
 /**
@@ -36,7 +35,6 @@ const Checkbox: React.FunctionComponent<Props> = props => {
         label = "",
         checked = false,
         inverted = false,
-        width = 254,
         variant = "primary",
     } = props
 
@@ -48,9 +46,11 @@ const Checkbox: React.FunctionComponent<Props> = props => {
      */
     const classNamesArray: Array<string> = [
         "journi-checkbox",
-        `journi-checkbox-${variant}`,
-        className,
+        `journi-checkbox-${variant}`
     ]
+    if (className) {
+        classNamesArray.push(`journi-checkbox-${className}`)
+    }
     if (inverted) {
         classNamesArray.push("journi-checkbox-inverted")
     }
@@ -69,7 +69,7 @@ const Checkbox: React.FunctionComponent<Props> = props => {
                 type="checkbox"
                 onChange={onChange}
             />
-            <label htmlFor={name} style={{ width: width + "px" }}>
+            <label htmlFor={name}>
                 {label && label}
             </label>
         </div>
