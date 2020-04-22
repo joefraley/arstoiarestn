@@ -23,7 +23,7 @@ export interface FlexProps {
  * add optional variables as needed
  */ 
 export interface StylesProp {
-    readonly backgroundColor?: string
-    readonly padding?: string
-    readonly width?: string
+    backgroundColor?: string
+    padding?: string
+    width?: string
 }
