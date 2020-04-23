@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 const StyledContainer = styled.div`
     align-items: center;
@@ -16,15 +16,6 @@ const FourOhFour: React.FC = () => {
     return (
         <StyledContainer id="jo-four-oh-four">
             <img src="/img/cat_color.png" alt="Sleepy cat" />
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
-            <h1>404</h1>
             <h1>404</h1>
             <h5>Oops! Could not find this page</h5>
         </StyledContainer>

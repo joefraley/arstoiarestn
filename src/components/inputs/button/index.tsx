@@ -8,7 +8,7 @@
 import React from "react"
 import { Icon, Row } from "components"
 import { IconTypes } from "components/icon/types"
-import styled, { css } from "styled-components"
+import styled, { css } from "styled-components/macro"
 import { modularScale } from "polished"
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
@@ -60,7 +60,7 @@ const ButtonIcon = styled(Icon)`
     color: inherit;
 `
 
-const Styles = styled(Row).attrs({ as: "button" })<Props>`
+const Styles = styled(Row)<Props>`
     appearance: none;
     background: none;
     border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
@@ -99,14 +99,14 @@ const Styles = styled(Row).attrs({ as: "button" })<Props>`
         svg {
             position: relative;
             flex-grow: 0;
-            flex-shrink: 1;
+            flex-shrink: 0;
             top: ${({ size = "medium" }) => {
-                const svgSizes = {
+                const offset = {
                     large: "7px",
                     medium: "5px",
                     small: "3px",
                 }
-                return svgSizes[size]
+                return offset[size]
             }};
         }
     }
@@ -139,6 +139,7 @@ const Button: React.FC<Props> = ({
     const iconSizes = { large: 24, medium: 20, small: 16 }
     return (
         <Styles
+            as="button"
             data-test={name}
             grow={0}
             id={name}

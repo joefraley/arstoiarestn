@@ -1,6 +1,6 @@
 /* tslint:disable */
 // @ts-nocheck
-import { css, createGlobalStyle } from "styled-components"
+import { css, createGlobalStyle } from "styled-components/macro"
 import { modularScale, rgba } from "polished"
 
 export const Reset = createGlobalStyle`

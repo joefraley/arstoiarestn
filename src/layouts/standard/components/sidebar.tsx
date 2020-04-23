@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import { Button, Column } from "components"
 import { alignment } from "components/layout/types"
 import { IconTypes } from "components/icon/types"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 const BrandImage = styled.div`
     flex-grow: 0;
