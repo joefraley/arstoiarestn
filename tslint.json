@@ -105,8 +105,8 @@
             "check-type"
         ],
         "no-var-keyword": true,
-        "readonly-keyword": true,
-        "readonly-array": true,
+        "readonly-keyword": false,
+        "readonly-array": false,
         "no-let": true,
         "no-mixed-interface": true
     }
