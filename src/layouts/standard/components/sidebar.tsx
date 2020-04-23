@@ -8,7 +8,7 @@ import styled from "styled-components/macro"
 
 const BrandImage = styled.div`
     flex-grow: 0;
-    padding: ${({ theme }) => `${theme.spacing.xxs} 0`};
+    padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.xs}`};
 `
 
 const StyledNav = styled(Column).attrs({ as: "nav" })`
@@ -72,11 +72,13 @@ const Sidebar: React.FC = props => {
 
 const SidebarButtonStyles = styled(Button)`
     justify-content: ${alignment.Start};
-    padding: 0;
+    padding: ${({ theme }) => `${theme.spacing.xs}`};
     flex-grow: 0;
-    margin-bottom: ${({ theme }) => theme.spacing.xxs};
 
     &.active {
+        border-radius: 0;
+        background: ${({ theme }) =>
+            `rgba(0,0,0,${theme.palette.action.active}`});
     }
 `
 const SidebarButton: React.FC<{
@@ -108,5 +110,4 @@ const SidebarButton: React.FC<{
 export default styled(Sidebar)`
     align-self: stretch;
     background: ${({ theme }) => theme.palette.primary.main};
-    padding: ${({ theme }) => `0 ${theme.spacing.xs}`};
 `

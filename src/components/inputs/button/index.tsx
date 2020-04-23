@@ -43,14 +43,14 @@ const sizes = {
     small: css`
         border-radius: ${({ theme }) => theme.shape.borderRadius.sm};
         font-size: ${modularScale(-2, "1rem", "perfectFourth")};
-        height: ${({ theme }) => theme.spacing.sm};
+        min-height: ${({ theme }) => theme.spacing.sm};
         padding-left: ${({ theme }) => theme.spacing.xss};
         padding-right: ${({ theme }) => theme.spacing.xss};
     `,
     large: css`
         border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
         font-size: ${modularScale(1, "1rem", "perfectFourth")};
-        height: ${({ theme }) => theme.spacing.lg};
+        min-height: ${({ theme }) => theme.spacing.lg};
         padding-left: ${({ theme }) => theme.spacing.xs};
         padding-right: ${({ theme }) => theme.spacing.xs};
     `,
@@ -67,7 +67,7 @@ const Styles = styled(Row)<Props>`
     font-family: ${({ theme }) => theme.typography.button.fontFamily};
     font-size: ${({ theme }) => theme.typography.button.fontSize};
     font-weight: ${({ theme }) => theme.typography.button.fontWeight};
-    height: ${({ theme }) => theme.spacing.lg};
+    min-height: ${({ theme }) => theme.spacing.lg};
     overflow: visible;
     padding-left: ${({ theme }) => theme.spacing.xs};
     padding-right: ${({ theme }) => theme.spacing.xs};
@@ -90,16 +90,13 @@ const Styles = styled(Row)<Props>`
 
     ${ButtonIcon} {
         flex-grow: 0;
-        flex-shrink: 1;
-
+        flex-shrink: 0;
         padding-left: 0;
         padding-right: 0;
         text-align: center;
 
         svg {
             position: relative;
-            flex-grow: 0;
-            flex-shrink: 0;
             top: ${({ size = "medium" }) => {
                 const offset = {
                     large: "7px",
@@ -125,6 +122,7 @@ const ButtonLabel = styled.span`
     vertical-align: middle;
 `
 
+const iconSizes = { large: 24, medium: 20, small: 16 }
 const Button: React.FC<Props> = ({
     children,
     icon,
@@ -136,7 +134,6 @@ const Button: React.FC<Props> = ({
     variant = "primary",
     ...props
 }) => {
-    const iconSizes = { large: 24, medium: 20, small: 16 }
     return (
         <Styles
             as="button"
