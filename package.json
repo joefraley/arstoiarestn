@@ -10,9 +10,9 @@
         "start": "react-scripts start",
         "storybook": "start-storybook -p 9009 -s public",
         "svg": "make svg",
-        "test": "npm run test:acceptance && CI=true npm run test:visual",
+        "test": "npm run test:acceptance && npm run test:visual",
         "test:acceptance": "NODE_ENV=test npx cucumber-js -f node_modules/cucumber-pretty || : ",
-        "test:visual": "react-scripts test"
+        "test:visual": "CI=true react-scripts test"
     },
     "dependencies": {
         "@apollo/react-hooks": "3.1.4",
@@ -55,6 +55,7 @@
         "create-index": "2.5.0",
         "cucumber": "6.0.5",
         "cucumber-pretty": "6",
+        "husky": "^4.2.5",
         "node-sass": "4.13.1",
         "portfinder": "^1.0.25",
         "prettier": "1.19.1",
@@ -73,6 +74,11 @@
     },
     "eslintConfig": {
         "extends": "react-app"
+    },
+    "husky": {
+        "hooks": {
+            "pre-push": "npm run lint && npm run build && npm run test:visual && (npm outdated || true)"
+        }
     },
     "homepage": ".",
     "browserslist": {
