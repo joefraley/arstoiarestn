@@ -60,7 +60,7 @@ const ButtonIcon = styled(Icon)`
     color: inherit;
 `
 
-const Styles = styled(Row)<Props>`
+const Styles = styled(Row).attrs({ as: "button" })<Props>`
     appearance: none;
     background: none;
     border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
@@ -101,12 +101,12 @@ const Styles = styled(Row)<Props>`
             flex-grow: 0;
             flex-shrink: 1;
             top: ${({ size = "medium" }) => {
-                const sizes = {
+                const svgSizes = {
                     large: "7px",
                     medium: "5px",
                     small: "3px",
                 }
-                return sizes[size]
+                return svgSizes[size]
             }};
         }
     }
@@ -125,7 +125,7 @@ const ButtonLabel = styled.span`
     vertical-align: middle;
 `
 
-const Button: React.FunctionComponent<Props> = ({
+const Button: React.FC<Props> = ({
     children,
     icon,
     inverted = false,
@@ -139,7 +139,6 @@ const Button: React.FunctionComponent<Props> = ({
     const iconSizes = { large: 24, medium: 20, small: 16 }
     return (
         <Styles
-            as="button"
             data-test={name}
             grow={0}
             id={name}

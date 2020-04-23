@@ -3,11 +3,11 @@ import * as Icons from "./icons"
 import { IconTypes } from "./types"
 
 interface Props {
-    type: IconTypes
-    size?: number
-    inverted?: boolean
-    color?: string
-    secondaryColor?: string
+    readonly type: IconTypes
+    readonly size?: number
+    readonly inverted?: boolean
+    readonly color?: string
+    readonly secondaryColor?: string
 }
 
 const Icon: React.FC<Props> = ({
