@@ -1,4 +1,9 @@
-import { formatPhoneNumber, formatDate } from "../string_utils"
+import {
+    formatPhoneNumber,
+    formatDate,
+    encodeBase64,
+    decodeBase64,
+} from "../string_utils"
 
 describe("Format phone numbers", () => {
     it("should add hyphens", () => {
@@ -46,5 +51,32 @@ describe("Format date strings", () => {
         const expected = "January 1, 2020"
         expect(formatDate(greenwich, "LL")).toEqual(expected)
         expect(formatDate(portland, "LL")).toEqual(expected)
+    })
+})
+
+describe("Encode/Decode Base64", () => {
+    it("should encode/decode strings", () => {
+        const decoded = "Hello"
+        const encoded = "SGVsbG8="
+        expect(encodeBase64(decoded)).toEqual(encoded)
+        expect(decodeBase64(encoded)).toEqual(decoded)
+    })
+    it("should encode/decode objects", () => {
+        const decoded = { value: "hello" }
+        const encoded = "eyJ2YWx1ZSI6ImhlbGxvIn0="
+        expect(encodeBase64(decoded)).toEqual(encoded)
+        expect(decodeBase64(encoded)).toEqual(decoded)
+    })
+    it("should encode/decode numbers", () => {
+        const decoded = 12345
+        const encoded = "MTIzNDU="
+        expect(encodeBase64(decoded)).toEqual(encoded)
+        expect(decodeBase64(encoded)).toEqual(decoded)
+    })
+    it("should encode/decode date strings", () => {
+        const decoded = "2020-01-01T00:00:00.000Z"
+        const encoded = "MjAyMC0wMS0wMVQwMDowMDowMC4wMDBa"
+        expect(encodeBase64(decoded)).toEqual(encoded)
+        expect(decodeBase64(encoded)).toEqual(decoded)
     })
 })

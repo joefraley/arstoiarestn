@@ -74,3 +74,29 @@ export const formatDate = (value: string | Date, format: string): string => {
         return value.toString()
     }
 }
+
+/**
+ * Encode/Decode Base64
+ * -----------------------------------------------------------------------------
+ */
+export const encodeBase64 = (value: string | object | number) => {
+    const stringify = () => {
+        switch (typeof value) {
+            case "object":
+                return JSON.stringify(value)
+            case "number":
+                return value.toString()
+            default:
+                return value
+        }
+    }
+    return btoa(stringify())
+}
+export const decodeBase64 = (value: string) => {
+    const decoded = atob(value)
+    try {
+        return JSON.parse(decoded)
+    } catch (e) {
+        return decoded
+    }
+}
