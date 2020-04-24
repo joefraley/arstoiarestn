@@ -2,38 +2,11 @@ import {
     formatPhoneNumber,
     formatDate,
     formatCurrency,
+    formatCreditCard,
+    formatExpirationDate,
     encodeBase64,
     decodeBase64,
 } from "../string_utils"
-
-describe("Format currency", () => {
-    it("should format currency from a number", () => {
-        const asNumber = 1234
-        const asFloat = 1234.0
-        const expected = "$1,234.00"
-        expect(formatCurrency(asNumber)).toEqual(expected)
-        expect(formatCurrency(asFloat)).toEqual(expected)
-    })
-    it("should format currency from a string", () => {
-        const asString = "1234"
-        const expected = "$1,234.00"
-        expect(formatCurrency(asString)).toEqual(expected)
-    })
-    it("should format currency with decimals", () => {
-        const asNumber = 1234.1
-        const asString = "$1234.10"
-        const expected = "$1,234.10"
-        expect(formatCurrency(asNumber)).toEqual(expected)
-        expect(formatCurrency(asString)).toEqual(expected)
-    })
-    it("should format currency without decimals", () => {
-        const asFloat = 1234.0
-        const asString = "1234.00"
-        const expected = "$1,234"
-        expect(formatCurrency(asFloat, true)).toEqual(expected)
-        expect(formatCurrency(asString, true)).toEqual(expected)
-    })
-})
 
 describe("Format phone numbers", () => {
     it("should add hyphens", () => {
@@ -81,6 +54,69 @@ describe("Format date strings", () => {
         const expected = "January 1, 2020"
         expect(formatDate(greenwich, "LL")).toEqual(expected)
         expect(formatDate(portland, "LL")).toEqual(expected)
+    })
+})
+
+describe("Format currency", () => {
+    it("should format currency from a number", () => {
+        const asNumber = 1234
+        const asFloat = 1234.0
+        const expected = "$1,234.00"
+        expect(formatCurrency(asNumber)).toEqual(expected)
+        expect(formatCurrency(asFloat)).toEqual(expected)
+    })
+    it("should format currency from a string", () => {
+        const asString = "1234"
+        const expected = "$1,234.00"
+        expect(formatCurrency(asString)).toEqual(expected)
+    })
+    it("should format currency with decimals", () => {
+        const asNumber = 1234.1
+        const asString = "$1234.10"
+        const expected = "$1,234.10"
+        expect(formatCurrency(asNumber)).toEqual(expected)
+        expect(formatCurrency(asString)).toEqual(expected)
+    })
+    it("should format currency without decimals", () => {
+        const asFloat = 1234.0
+        const asString = "1234.00"
+        const expected = "$1,234"
+        expect(formatCurrency(asFloat, true)).toEqual(expected)
+        expect(formatCurrency(asString, true)).toEqual(expected)
+    })
+})
+
+describe("Format credit cards", () => {
+    it("should format credit card", () => {
+        expect(formatCreditCard("4242")).toEqual("4242")
+        expect(formatCreditCard("42424")).toEqual("4242 4")
+        expect(formatCreditCard("424242424")).toEqual("4242 4242 4")
+        expect(formatCreditCard("4242424242424")).toEqual("4242 4242 4242 4")
+        expect(formatCreditCard("4242424242424242")).toEqual(
+            "4242 4242 4242 4242",
+        )
+    })
+    it("should format AMEX credit card", () => {
+        expect(formatCreditCard("3712")).toEqual("3712")
+        expect(formatCreditCard("37121")).toEqual("3712 1")
+        expect(formatCreditCard("37121212121")).toEqual("3712 121212 1")
+        expect(formatCreditCard("371212121212121")).toEqual("3712 121212 12121")
+    })
+    it("should remove special or extra characters", () => {
+        expect(formatCreditCard("hello4242")).toEqual("4242")
+        expect(formatCreditCard("4242 4242")).toEqual("4242 4242")
+        expect(formatCreditCard("42424242424242424242")).toEqual(
+            "4242 4242 4242 4242",
+        )
+        expect(formatCreditCard("37121212121212121")).toEqual(
+            "3712 121212 12121",
+        )
+    })
+    it("should format expiration date", () => {
+        expect(formatExpirationDate("1")).toEqual("1")
+        expect(formatExpirationDate("10")).toEqual("10")
+        expect(formatExpirationDate("101")).toEqual("10/1")
+        expect(formatExpirationDate("1010")).toEqual("10/10")
     })
 })
 

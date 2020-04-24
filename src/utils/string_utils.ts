@@ -98,6 +98,42 @@ export const formatCurrency = (value: number | string, simple?: boolean) => {
 }
 
 /**
+ * Format Credit Card Expiration Date
+ * -----------------------------------------------------------------------------
+ */
+export const formatExpirationDate = (expiration: string) => {
+    const transform = expiration.replace(/\//g, "")
+    if (transform.length > 2) {
+        return transform.replace(/^(.{2})/, "$1/")
+    }
+    return expiration
+}
+
+/**
+ * Format Credit Card
+ * -----------------------------------------------------------------------------
+ */
+export const formatCreditCard = (cardNumber: string | number) => {
+    // Enforce as string
+    const card = cardNumber.toString().replace(/[^0-9.]/g, "")
+
+    // AMEX cards start with 34 or 37 and have 15 numbers
+    if (/^3[47]/.test(card)) {
+        return card
+            .replace(/\b(\d{4})/, "$1 ")
+            .replace(/ (\d{6})/, " $1 ")
+            .substring(0, 17)
+            .trim()
+    }
+
+    // All other cards
+    return card
+        .replace(/\d{4}(?=.)/g, "$& ")
+        .substring(0, 19)
+        .trim()
+}
+
+/**
  * Encode/Decode Base64
  * -----------------------------------------------------------------------------
  */
