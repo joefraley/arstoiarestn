@@ -10,9 +10,10 @@
         "start": "react-scripts start",
         "storybook": "start-storybook -p 9009 -s public",
         "svg": "make svg",
-        "test": "npm run test:acceptance && CI=true npm run test:visual",
+        "test": "npm run test:acceptance && CI=true npm run test:visual && npm run test:unit",
         "test:acceptance": "NODE_ENV=test npx cucumber-js -f node_modules/cucumber-pretty || : ",
-        "test:visual": "react-scripts test"
+        "test:visual": "react-scripts test \".*.test.[jt]sx?$\"",
+        "test:unit": "react-scripts test \".*.spec.[jt]sx?$\""
     },
     "dependencies": {
         "@apollo/react-hooks": "3.1.4",
