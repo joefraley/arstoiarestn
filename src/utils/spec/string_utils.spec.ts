@@ -1,4 +1,22 @@
-import { formatDate } from "../string_utils"
+import { formatPhoneNumber, formatDate } from "../string_utils"
+
+describe("Format phone numbers", () => {
+    it("should add hyphens", () => {
+        expect(formatPhoneNumber("5035555555")).toEqual("503-555-5555")
+    })
+    it("should ignore non-numeric characters", () => {
+        const expected = "503-555-5555"
+        expect(formatPhoneNumber("503-555-5555")).toEqual(expected)
+        expect(formatPhoneNumber("Saul: 5035555555")).toEqual(expected)
+        expect(formatPhoneNumber("🚀5035555555")).toEqual(expected)
+        expect(formatPhoneNumber("(503) 555 5555")).toEqual(expected)
+    })
+    it("should support US/CAN/MEX country codes", () => {
+        expect(formatPhoneNumber("15035555555")).toEqual("+1 503-555-5555")
+        expect(formatPhoneNumber("525035555555")).toEqual("+52 503-555-5555")
+        expect(formatPhoneNumber("5205555555")).toEqual("520-555-5555")
+    })
+})
 
 describe("Format date strings", () => {
     it("should accept string or date input", () => {
