@@ -8,7 +8,7 @@ export default { title: "Inputs/Button" }
 
 const findIcons = () => {
     let iconNames = []
-    const icons = requireContext("components/icon/icons", true, /\.js$/)
+    const icons = requireContext("../../../icon/icons", true, /\.js$/)
     icons.keys().forEach(path => {
         iconNames.push(path.split("./")[1].match(/.+(?=\.)/gi)[0])
     })
