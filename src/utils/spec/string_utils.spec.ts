@@ -1,9 +1,39 @@
 import {
     formatPhoneNumber,
     formatDate,
+    formatCurrency,
     encodeBase64,
     decodeBase64,
 } from "../string_utils"
+
+describe("Format currency", () => {
+    it("should format currency from a number", () => {
+        const asNumber = 1234
+        const asFloat = 1234.0
+        const expected = "$1,234.00"
+        expect(formatCurrency(asNumber)).toEqual(expected)
+        expect(formatCurrency(asFloat)).toEqual(expected)
+    })
+    it("should format currency from a string", () => {
+        const asString = "1234"
+        const expected = "$1,234.00"
+        expect(formatCurrency(asString)).toEqual(expected)
+    })
+    it("should format currency with decimals", () => {
+        const asNumber = 1234.1
+        const asString = "$1234.10"
+        const expected = "$1,234.10"
+        expect(formatCurrency(asNumber)).toEqual(expected)
+        expect(formatCurrency(asString)).toEqual(expected)
+    })
+    it("should format currency without decimals", () => {
+        const asFloat = 1234.0
+        const asString = "1234.00"
+        const expected = "$1,234"
+        expect(formatCurrency(asFloat, true)).toEqual(expected)
+        expect(formatCurrency(asString, true)).toEqual(expected)
+    })
+})
 
 describe("Format phone numbers", () => {
     it("should add hyphens", () => {

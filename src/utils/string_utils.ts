@@ -4,9 +4,9 @@
  * [ ] Sentance Cases
  * [x] Phone Numbers
  * [x] Dates
- * [ ] Currency
+ * [x] Currency
  * [ ] Credit Cards
- * [ ] Base64 Encoding/Decoding
+ * [x] Base64 Encoding/Decoding
  * -----------------------------------------------------------------------------
  */
 import Moment from "moment"
@@ -72,6 +72,28 @@ export const formatDate = (value: string | Date, format: string): string => {
     } catch (e) {
         // Return unformatted initial value
         return value.toString()
+    }
+}
+
+/**
+ * Format currency
+ * -----------------------------------------------------------------------------
+ */
+export const formatCurrency = (value: number | string, simple?: boolean) => {
+    // Remove all non-numeric or decimal characters
+    const cleaned = value.toString().replace(/[^0-9.]/g, "")
+    const amount = parseFloat(cleaned).toFixed(2)
+
+    if (simple) {
+        // Return "simplified" (ex: $1,000)
+        const parts = (amount || 0).toString().split(".")
+        return "$" + parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+        // Return default (ex: $1,000.00)
+        const parts = (amount || 0).toString().split(".")
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        parts[1] = parts[1] || "00"
+        return "$" + parts.join(".")
     }
 }
 
