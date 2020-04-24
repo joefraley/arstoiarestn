@@ -3,6 +3,7 @@
  */
 const { Before, BeforeAll, After, AfterAll } = require("cucumber")
 const scope = require("./scope")
+const { startApp } = require("./app-server")
 
 /**
  * Build and run a suitable instance of the application
@@ -10,67 +11,8 @@ const scope = require("./scope")
  * in the environment where tests are running
  */
 BeforeAll({ timeout: 30 * 10000 }, async () => {
-    const portfinder = require("portfinder")
-    const path = require("path")
-    const { spawn } = require("child_process")
-    const fs = require("fs")
-    const run = command =>
-        new Promise((resolve, reject) => {
-            const [exec, ...args] = command.split(" ")
-            const process = spawn(exec, args)
-            process.stdout.on("data", data => {
-                console.log(`${data}`)
-            })
+    const app = await startApp()
 
-            process.stderr.on("data", data => {
-                console.error(`${data}`)
-            })
-
-            process.on("error", error => {
-                console.error(`${error.message}`)
-            })
-
-            process.on("close", code => {
-                console.log("closing process...")
-                if (code === 0) resolve()
-                else reject(code)
-            })
-        })
-
-    const build = path.resolve(__filename, "../../../build")
-    const checkBuild = () => {
-        if (!fs.existsSync(`${build}/index.html`)) {
-            console.log("building app...")
-            return run("npm run build")
-        }
-        console.log("app is ready to serve...")
-        return Promise.resolve()
-    }
-    const startApp = port => {
-        console.log("starting app...")
-        const handler = require("serve-handler")
-        const http = require("http")
-        const server = http.createServer((request, response) => {
-            return handler(request, response, {
-                public: build,
-                rewrites: [{ source: "*", destination: `/index.html` }],
-            })
-        })
-
-        return new Promise(resolve => {
-            server.listen(port, () => {
-                console.log(
-                    `app server up and running on http://localhost:${port}`,
-                )
-                resolve({ port, server })
-            })
-        })
-    }
-    const getPort = () => portfinder.getPortPromise()
-
-    await checkBuild()
-    const port = await getPort()
-    const app = await startApp(port)
     scope.app_server = app.server
     scope.host = `http://localhost:${app.port}`
 })

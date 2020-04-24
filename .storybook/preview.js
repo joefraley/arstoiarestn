@@ -9,6 +9,8 @@ import { Reset, TypeSettings, theme } from "../src/styles"
 const AllowScroll = createGlobalStyle`
     #root {
         overflow: auto;
+        justify-content: center;
+        align-items: center;
     }
 `
 const withStyleReset = makeDecorator({

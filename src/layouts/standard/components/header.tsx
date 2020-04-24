@@ -1,29 +1,14 @@
-/**
- * Header
- * -----------------------------------------------------------------------------
- */
 import React from "react"
+import styled from "styled-components/macro"
 import { useTranslation } from "react-i18next"
-import { Button } from "components"
+import { Button, Row } from "components"
+import { alignment } from "components/layout/types"
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
 const Header: React.FC = props => {
-    /**
-     * Hooks
-     */
     const { t, i18n } = useTranslation()
 
-    /**
-     * Component State
-     */
     const [language, setLanguage] = React.useState<string>("en-Us")
 
-    /**
-     * Methods
-     */
     const onChangeTranslation = () => {
         // Toggle between English/Spanish
         // TODO: Make this a dropdown - consult UX
@@ -32,36 +17,34 @@ const Header: React.FC = props => {
         i18n.changeLanguage(newLanguage)
     }
 
-    /**
-     * Template
-     */
     return (
-        <div className="bg-white p-xs text-right">
+        <Row as="header" horizontal={alignment.End} {...props}>
             <Button
                 name="header-account-button"
                 variant="link"
                 icon="bell"
-                onPress={() => false}
+                style={{ flexGrow: 0, padding: "0.5rem" }}
+                onClick={() => false}
             />
             <Button
                 name="header-account-button"
                 variant="link"
                 icon="globe"
-                onPress={onChangeTranslation}
-                className="mr-xxs"
+                onClick={onChangeTranslation}
+                style={{ flexGrow: 0, padding: "0.5rem" }}
             />
             <Button
                 name="header-signout-button"
                 variant="secondary"
                 label={t("base.signOut")}
-                onPress={() => false}
+                style={{ flexGrow: 0, padding: "0.5rem" }}
+                onClick={() => false}
             />
-        </div>
+        </Row>
     )
 }
 
-/**
- * Export
- * -----------------------------------------------------------------------------
- */
-export default Header
+export default styled(Header)`
+    padding: ${({ theme }) => theme.spacing.xxs};
+    background: ${({ theme }) => theme.palette.common.white};
+`

@@ -1,6 +1,6 @@
 /* tslint:disable */
 // @ts-nocheck
-import { css, createGlobalStyle } from "styled-components"
+import { css, createGlobalStyle } from "styled-components/macro"
 import { modularScale, rgba } from "polished"
 
 export const Reset = createGlobalStyle`
@@ -20,6 +20,12 @@ export const Reset = createGlobalStyle`
         margin: 0;
         outline: none;
         padding: 0;
+    }
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
     }
 `
 
@@ -101,7 +107,7 @@ const theme = {
             main: colors.purple.main,
         },
         secondary: {
-            contrastText: colors.white,
+            contrastText: colors.purple.medium,
             dark: colors.grey[900],
             light: colors.grey[200],
             main: colors.grey[600],
@@ -142,12 +148,12 @@ const theme = {
             default: colors.grey[100],
         },
         action: {
-            active: rgba(colors.grey[900], 0.54),
-            disabled: rgba(colors.grey[900], 0.26),
-            disabledBackground: rgba(colors.grey[900], 0.12),
-            focus: rgba(colors.grey[900], 0.12),
-            hover: rgba(colors.grey[900], 0.04),
-            selected: rgba(colors.grey[900], 0.08),
+            active: 0.54,
+            disabled: 0.26,
+            disabledBackground: 0.12,
+            focus: 0.88,
+            hover: 0.96,
+            selected: 0.92,
         },
     },
     shadows: [
@@ -333,7 +339,6 @@ const theme = {
     typography: {
         htmlFontSize: 16,
         fontFamily: `"effra", "Helvetica Neue", "Arial", sans-serif`,
-        fontSize: 14,
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,
@@ -412,7 +417,7 @@ const theme = {
         button: {
             fontFamily: family,
             fontWeight: 500,
-            fontSize: modularScale(-1, "1rem", "perfectFourth"),
+            fontSize: modularScale(0, "1rem", "perfectFourth"),
             lineHeight: modularScale(1, 1, "minorSecond"),
             letterSpacing: "0.02857rem",
             textTransform: "uppercase",
@@ -437,6 +442,7 @@ const theme = {
     },
     shape: {
         borderRadius: {
+            sm: "0.75rem",
             md: "1rem",
             lg: "1.5rem",
         },
@@ -449,6 +455,11 @@ const theme = {
 }
 
 export const TypeSettings = createGlobalStyle`
+    html {
+        ${props => `
+            font-size: ${props.theme.typography.htmlFontSIze}
+        `}
+    }
     body {
         ${props => css`
             ${props.theme.typography.body1}

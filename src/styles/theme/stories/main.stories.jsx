@@ -7,10 +7,11 @@ export const Colors = () => {
         <div
             style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, 1fr))",
-                gridTemplateRows: "repeat(auto-fit, 1fr))",
+                width: "100%",
+                gridTemplateColumns: "repeat(6, 1fr)",
                 gridGap: "1rem",
-                flex: "1 1 auto",
+                flex: 1,
+                minHeight: 0,
             }}
         >
             {Object.keys(theme.palette)

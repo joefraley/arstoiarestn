@@ -6,86 +6,158 @@
  * -----------------------------------------------------------------------------
  */
 import React from "react"
-import { Icon } from "components"
+import { Icon, Row } from "components"
 import { IconTypes } from "components/icon/types"
-import "./styles.scss"
+import styled, { css } from "styled-components/macro"
+import { modularScale } from "polished"
 
-/**
- * Types
- * -----------------------------------------------------------------------------
- */
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-    readonly onPress: VoidFunction
-    readonly name: string // element name for analytics/testing
+    readonly icon?: IconTypes
+    readonly inverted?: boolean
     readonly label?: string // button text
+    readonly name?: string // element name for analytics/testing
+    readonly size?: "small" | "medium" | "large"
     readonly title?: string // element description for a11y
     readonly variant?: "primary" | "secondary" | "link" | "content"
-    readonly size?: "small" | "medium" | "large"
-    readonly icon?: IconTypes
-    readonly inverted?: string
 }
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
-const Button: React.FunctionComponent<Props> = props => {
-    /**
-     * Destructured default props
-     */
-    const {
-        onPress,
-        name,
-        className,
-        label,
-        icon,
-        variant = "primary",
-        size = "medium",
-        inverted = false,
-        ...elementProps
-    } = props
+const variants = {
+    primary: css`
+        background: ${({ theme }) => theme.palette.primary.main};
+        color: ${({ theme }) => theme.palette.primary.contrastText};
+    `,
+    secondary: css`
+        background: ${({ theme }) => theme.palette.secondary.light};
+        color: ${({ theme }) => theme.palette.secondary.contrastText};
+    `,
+    link: css`
+        background: transparent;
+        color: ${({ theme }) => theme.palette.primary.main};
+    `,
+    content: css`
+        color: currentcolor;
+    `,
+}
 
-    /**
-     * Define variant styles
-     */
-    const classNames = [
-        "journi-button",
-        `journi-button-${variant}`,
-        `journi-button-${size}`,
-        icon ? "journi-button-icon" : "",
-        inverted ? "journi-button-inverted" : "",
-        className,
-    ].join(" ")
+const sizes = {
+    small: css`
+        border-radius: ${({ theme }) => theme.shape.borderRadius.sm};
+        font-size: ${modularScale(-2, "1rem", "perfectFourth")};
+        min-height: ${({ theme }) => theme.spacing.sm};
+        padding-left: ${({ theme }) => theme.spacing.xss};
+        padding-right: ${({ theme }) => theme.spacing.xss};
+    `,
+    large: css`
+        border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
+        font-size: ${modularScale(1, "1rem", "perfectFourth")};
+        min-height: ${({ theme }) => theme.spacing.lg};
+        padding-left: ${({ theme }) => theme.spacing.xs};
+        padding-right: ${({ theme }) => theme.spacing.xs};
+    `,
+}
 
-    /**
-     * Define icon props
-     */
-    const iconInverted = variant === "primary"
-    const iconSize = size === "large" ? 24 : size === "medium" ? 20 : 16
+const ButtonIcon = styled(Icon)`
+    color: inherit;
+`
 
-    /**
-     * Template
-     */
+const Styles = styled(Row)<Props>`
+    appearance: none;
+    background: none;
+    border-radius: ${({ theme }) => theme.shape.borderRadius.lg};
+    font-family: ${({ theme }) => theme.typography.button.fontFamily};
+    font-size: ${({ theme }) => theme.typography.button.fontSize};
+    font-weight: ${({ theme }) => theme.typography.button.fontWeight};
+    min-height: ${({ theme }) => theme.spacing.lg};
+    overflow: visible;
+    padding-left: ${({ theme }) => theme.spacing.xs};
+    padding-right: ${({ theme }) => theme.spacing.xs};
+    cursor: pointer;
+    text-transform: none;
+
+    &:hover,
+    &:focus {
+        opacity: ${({ theme }) => theme.palette.action.hover};
+    }
+    &:active {
+        transform: translateY(1px);
+    }
+
+    ${({ variant = "primary" }) => variants[variant]}
+    ${({ size = "medium" }) => {
+        const styles = sizes[size]
+        return styles
+    }}
+
+    ${ButtonIcon} {
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+
+        svg {
+            position: relative;
+            top: ${({ size = "medium" }) => {
+                const offset = {
+                    large: "7px",
+                    medium: "5px",
+                    small: "3px",
+                }
+                return offset[size]
+            }};
+        }
+    }
+`
+
+const ButtonLabel = styled.span`
+    align-item: center;
+    color: currentcolor;
+    display: inline-flex;
+    flex-grow: 0;
+    font-size: inherit;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: left;
+    vertical-align: middle;
+`
+
+const iconSizes = { large: 24, medium: 20, small: 16 }
+const Button: React.FC<Props> = ({
+    children,
+    icon,
+    inverted = false,
+    label = "",
+    name = "",
+    onClick,
+    size = "medium",
+    variant = "primary",
+    ...props
+}) => {
     return (
-        <button
-            id={name}
+        <Styles
+            as="button"
             data-test={name}
-            className={classNames}
+            grow={0}
+            id={name}
+            inverted={inverted}
+            onClick={onClick}
+            size={size}
             type="button"
-            onClick={props.onPress}
-            {...elementProps}
+            variant={variant}
+            {...props}
         >
-            {props.label && props.label}
             {icon && (
-                <Icon type={icon} inverted={iconInverted} size={iconSize} />
+                <ButtonIcon
+                    inverted={variant === "primary"}
+                    size={iconSizes[size]}
+                    type={icon}
+                />
             )}
-            {props.children && props.children}
-        </button>
+            {label && <ButtonLabel>{label}</ButtonLabel>}
+            {children && children}
+        </Styles>
     )
 }
 
-/**
- * Export component
- * -----------------------------------------------------------------------------
- */
 export default Button

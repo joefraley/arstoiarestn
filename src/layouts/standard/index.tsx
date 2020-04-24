@@ -1,66 +1,42 @@
-/**
- * Layout
- * -----------------------------------------------------------------------------
- */
 import React from "react"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import Sidebar from "./components/sidebar"
 import Header from "./components/header"
+import { Row } from "components"
 
-const StyledContainer = styled.div`
+const StyledContainer = styled(Row)`
     background: ${({ theme }) => theme.palette.background.default};
-    display: flex;
-    flex-direction: row;
+    display: grid;
     height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    grid-template-areas:
+        "nav header"
+        "nav main";
+    grid-template-columns: minmax(190px, 200px) 1fr;
+    grid-template-rows: min-content 1fr;
 
-    #jo-content {
-        display: flex;
-        flex-flow: column;
-        flex: 1;
+    ${Sidebar} {
+        grid-area: nav;
     }
 
-    #jo-sidebar {
-        background: ${({ theme }) => theme.palette.primary.main};
+    ${Header} {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        overflow-y: scroll;
         height: 100%;
-        min-width: 190px;
-        width: 200px;
-    }
-
-    .jo-sidebar-button {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        span {
-            color: ${({ theme }) => theme.palette.common.white};
-        }
-        &.active {
-            background: ${({ theme }) => theme.palette.action.active};
-        }
     }
 `
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
-const Layout: React.FC = props => {
+const Layout: React.FC = ({ children }) => {
     return (
-        <StyledContainer id="jo-app">
+        <StyledContainer>
             <Sidebar />
-            <div id="jo-content">
-                <Header />
-                {props.children}
-            </div>
+            <Header />
+            <main>{children}</main>
         </StyledContainer>
     )
 }
 
-/**
- * Export
- * -----------------------------------------------------------------------------
- */
 export default Layout

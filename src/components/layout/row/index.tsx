@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { FlexProps } from "../types"
 
 const Row = styled.div<FlexProps>`
