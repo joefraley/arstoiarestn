@@ -1,4 +1,5 @@
 import {
+    formatCase,
     formatPhoneNumber,
     formatDate,
     formatCurrency,
@@ -7,6 +8,29 @@ import {
     encodeBase64,
     decodeBase64,
 } from "../string_utils"
+
+describe("Format string case", () => {
+    it("should format as lowercase", () => {
+        const expected = "hello there"
+        expect(formatCase("hello there", "lowercase")).toEqual(expected)
+        expect(formatCase("HeLlo THEre", "lowercase")).toEqual(expected)
+    })
+    it("should format as uppercase", () => {
+        const expected = "HELLO THERE"
+        expect(formatCase("hello there", "uppercase")).toEqual(expected)
+        expect(formatCase("HeLlo THEre", "uppercase")).toEqual(expected)
+    })
+    it("should format as capitalized", () => {
+        const expected = "Hello there"
+        expect(formatCase("hello there", "capitalize")).toEqual(expected)
+        expect(formatCase("hELLO THERE", "capitalize")).toEqual(expected)
+    })
+    it("should format as titlecase", () => {
+        const expected = "Hello There"
+        expect(formatCase("hello there", "titlecase")).toEqual(expected)
+        expect(formatCase("hELLO tHERE", "titlecase")).toEqual(expected)
+    })
+})
 
 describe("Format phone numbers", () => {
     it("should add hyphens", () => {

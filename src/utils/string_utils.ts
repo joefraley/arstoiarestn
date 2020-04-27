@@ -1,15 +1,40 @@
 /**
  * String Formatting Utilities
- *
- * [ ] Sentance Cases
- * [x] Phone Numbers
- * [x] Dates
- * [x] Currency
- * [ ] Credit Cards
- * [x] Base64 Encoding/Decoding
  * -----------------------------------------------------------------------------
  */
 import Moment from "moment"
+
+/**
+ * Format string case
+ * -----------------------------------------------------------------------------
+ * formatCase("hello there", "uppercase")   => "HELLO THERE"
+ * formatCase("hello there", "lowercase")   => "hello there"
+ * formatCase("hello there", "capitalize")  => "Hello there"
+ * formatCase("hello there", "titlecase")   => "Hello There"
+ */
+export const formatCase = (
+    value: string,
+    transform: "uppercase" | "lowercase" | "capitalize" | "titlecase" | "none",
+) => {
+    switch (transform) {
+        case "lowercase":
+            return value.toLowerCase()
+        case "uppercase":
+            return value.toUpperCase()
+        case "capitalize": {
+            const lowercase = value.toLowerCase()
+            return lowercase.charAt(0).toUpperCase() + lowercase.slice(1)
+        }
+        case "titlecase": {
+            const lowercase = value.toLowerCase()
+            return lowercase.replace(/\w\S*/g, t => {
+                return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase()
+            })
+        }
+        default:
+            return value // input cast to string
+    }
+}
 
 /**
  * Format phone numbers
@@ -78,6 +103,10 @@ export const formatDate = (value: string | Date, format: string): string => {
 /**
  * Format currency
  * -----------------------------------------------------------------------------
+ * formatCurrency("1234")           => "$1,234.00"
+ * formatCurrency("1234", true)     => "$1,234"
+ * formatCurrency("1234.10")        => "$1,234.10"
+ * formatCurrency("1234.10", true)  => "$1,234"
  */
 export const formatCurrency = (value: number | string, simple?: boolean) => {
     // Remove all non-numeric or decimal characters
@@ -100,6 +129,7 @@ export const formatCurrency = (value: number | string, simple?: boolean) => {
 /**
  * Format Credit Card Expiration Date
  * -----------------------------------------------------------------------------
+ * formatExpirationDate("1012")     => "10/12"
  */
 export const formatExpirationDate = (expiration: string) => {
     const transform = expiration.replace(/\//g, "")
@@ -112,6 +142,8 @@ export const formatExpirationDate = (expiration: string) => {
 /**
  * Format Credit Card
  * -----------------------------------------------------------------------------
+ * formatCreditCard("4242424242424242")     => "4242 4242 4242 4242"
+ * formatCreditCard("371212121212121")      => "3712 121212 12121"
  */
 export const formatCreditCard = (cardNumber: string | number) => {
     // Enforce as string
@@ -136,6 +168,8 @@ export const formatCreditCard = (cardNumber: string | number) => {
 /**
  * Encode/Decode Base64
  * -----------------------------------------------------------------------------
+ * encodeBase64("Hello")        => "SGVsbG8="
+ * decodeBase64("SGVsbG8=")     => "Hello"
  */
 export const encodeBase64 = (value: string | object | number) => {
     const stringify = () => {
