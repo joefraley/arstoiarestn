@@ -10,6 +10,7 @@ import { Icon, Row } from "components"
 import { IconTypes } from "components/icon/types"
 import styled, { css } from "styled-components/macro"
 import { modularScale } from "polished"
+import { useTagging } from "utils/tagging_utils"
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
     readonly icon?: IconTypes
@@ -134,6 +135,20 @@ const Button: React.FC<Props> = ({
     variant = "primary",
     ...props
 }) => {
+    /**
+     * Methods
+     */
+    const tag = useTagging()
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        tag({ type: "click", value: name })
+        if (onClick) {
+            onClick(e)
+        }
+    }
+
+    /**
+     * Template
+     */
     return (
         <Styles
             as="button"
@@ -141,7 +156,7 @@ const Button: React.FC<Props> = ({
             grow={0}
             id={name}
             inverted={inverted}
-            onClick={onClick}
+            onClick={handleClick}
             size={size}
             type="button"
             variant={variant}
