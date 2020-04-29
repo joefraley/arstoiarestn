@@ -80,7 +80,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-push": "npm run lint && npm run build && npm run test:visual && (npm outdated || true)"
+            "pre-push": "npm run lint && npm run build && (npm outdated || true)"
         }
     },
     "homepage": ".",
