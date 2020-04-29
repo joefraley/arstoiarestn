@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions"
 import Button from ".."
 
 export default { title: "Inputs/Button" }
-export const withText = () => (
+export const Default = () => (
     <Button name="button" onClick={action("button-click")}>
         Hello Button
     </Button>

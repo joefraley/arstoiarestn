@@ -1,4 +1,4 @@
-Feature: timeline view claims events
+Feature: View data on timeline
 
   As a Journi user
   I want to see medical events for myself and my dependents

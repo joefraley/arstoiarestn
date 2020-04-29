@@ -7,12 +7,13 @@ resources_I_provision:
     - bucket_name: styleguide
       bucket_contents_path: ./styleguide/
   cloudfront_distributions:
-    - distribution_name: journi-web-app
+    - distribution_name: master # added to the end of default DNS alias: journi-web-app-master.dev.janusplatform.io
       default_cache_behavior:
         origin:
           bucket_name: master
-      aliases_from_parameter: true
-      certificate_from_parameter: true
+      #vanity_alias: journi-web-app # an additional DNS alias to <vanity_alias>.<env>.janusplatform.io
+      aliases_from_parameter: false # if true reads DNS aliases from SSM, but does not provision DNS :/
+      certificate_from_parameter: true # reads the certificate from SSM, so that it can be generated with custom aliases
       default_root_object: index.html
       custom_error_responses:
         - &error-response

@@ -1,9 +1,0 @@
-@import "styles/variables";
-
-.journi-card {
-    @include card-shadow;
-    background: $white;
-    padding: $spacing-sm;
-    border-radius: $border-radius;
-    flex-grow: 0;
-}

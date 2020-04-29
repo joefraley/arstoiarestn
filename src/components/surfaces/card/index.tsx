@@ -1,15 +1,8 @@
-/**
- * Card
- * -----------------------------------------------------------------------------
- */
 import React from "react"
+import styled from "styled-components/macro"
 import { Button } from "components"
-import "./styles.scss"
+import { default as Layer } from "../layer"
 
-/**
- * Types
- * -----------------------------------------------------------------------------
- */
 interface Props
     extends React.HTMLAttributes<HTMLDivElement & HTMLButtonElement> {
     readonly children?: any // tslint:disable-line
@@ -17,32 +10,27 @@ interface Props
     readonly onPress?: VoidFunction
 }
 
-/**
- * Component
- * -----------------------------------------------------------------------------
- */
-const Card: React.FunctionComponent<Props> = props => {
-    /**
-     * Template
-     */
-    if (props.onPress) {
+const Styles = styled(Layer)<Props>`
+    padding: ${({ theme }) => theme.spacing.xs};
+    border-radius: ${({ theme }) => theme.shape.borderRadius.sm};
+    flex-grow: 0;
+`
+
+const Card: React.FC<Props> = ({ children, onPress }) => {
+    if (onPress) {
         return (
-            <Button
+            <Styles
+                as={Button}
                 name="card-button"
                 title="Click to see card details"
-                className={`journi-card ${props.className}`}
                 variant="content"
-                onClick={() => false}
+                onClick={onPress}
             >
-                {props.children && props.children}
-            </Button>
+                {children && children}
+            </Styles>
         )
     }
-    return <div className="journi-card">{props.children && props.children}</div>
+    return <Styles>{children && children}</Styles>
 }
 
-/**
- * Export component
- * -----------------------------------------------------------------------------
- */
 export default Card
