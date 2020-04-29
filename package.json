@@ -10,9 +10,10 @@
         "start": "react-scripts start",
         "storybook": "start-storybook -p 9009 -s public",
         "svg": "make svg",
-        "test": "npm run test:acceptance && npm run test:visual",
+        "test": "npm run test:acceptance && npm run test:visual && npm run test:unit",
         "test:acceptance": "NODE_ENV=test npx cucumber-js -f node_modules/cucumber-pretty || : ",
-        "test:visual": "CI=true react-scripts test"
+        "test:visual": "CI=true react-scripts test \".*.test.[jt]sx?$\"",
+        "test:unit": "CI=true react-scripts test \".*.spec.[jt]sx?$\""
     },
     "dependencies": {
         "@apollo/react-hooks": "^3.1.5",
@@ -20,6 +21,7 @@
         "graphql": "15.0.0",
         "i18next": "^19.4.4",
         "i18next-browser-languagedetector": "^4.1.1",
+        "moment": "^2.24.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-helmet": "6.0.0",
@@ -78,7 +80,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-push": "npm run lint && npm run build && npm run test:visual && (npm outdated || true)",
+            "pre-push": "npm run lint && npm run build && (npm outdated || true)",
             "post-merge": "npm install"
         }
     },
