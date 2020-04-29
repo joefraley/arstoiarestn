@@ -5,6 +5,8 @@ import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { makeDecorator } from "@storybook/addons"
 import { Reset, TypeSettings, theme } from "../src/styles"
+import { Router, Route } from "react-router-dom"
+import { createMemoryHistory } from "history"
 
 const AllowScroll = createGlobalStyle`
     #root {
@@ -15,14 +17,16 @@ const AllowScroll = createGlobalStyle`
 `
 const withStyleReset = makeDecorator({
     name: "JourniStyleReset",
-    wrapper: (getStory, context) => {
+    wrapper: (story, context) => {
         return (
             <>
                 <ThemeProvider theme={theme}>
                     <Reset />
                     <TypeSettings />
                     <AllowScroll />
-                    {getStory(context)}
+                    <Router history={createMemoryHistory()}>
+                        <Route path="/" component={() => story(context)} />
+                    </Router>
                 </ThemeProvider>
             </>
         )
