@@ -1,3 +1,5 @@
+Feature: Filter timeline items
+
 As a Journi user
 I want to filter my timeline items
 So I can easily find the records I'm looking for

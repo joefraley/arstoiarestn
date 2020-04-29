@@ -1,0 +1,1 @@
+Feature: Check network provider search
