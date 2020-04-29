@@ -140,7 +140,7 @@ const Button: React.FC<Props> = ({
      */
     const tag = useTagging()
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        tag({ type: "click", value: name })
+        tag({ type: "click", label: name })
         if (onClick) {
             onClick(e)
         }

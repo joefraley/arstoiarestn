@@ -4,10 +4,28 @@ import { Switch, Route, useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import v from "voca"
 import Routes, { ProtectedRoute } from "./routes"
+import { useTagging } from "utils/tagging_utils"
 import "styles/journi.scss"
 
 const Main: React.FC = props => {
     const location = useLocation()
+
+    /**
+     * Send analytics on route transitions
+     */
+    const [pathname, setPathname] = React.useState("")
+    const tag = useTagging()
+    React.useEffect(() => {
+        if (location.pathname !== pathname) {
+            tag({
+                type: "view",
+                route: location.pathname,
+                previous: pathname,
+            })
+            setPathname(location.pathname)
+        }
+    }, [location.pathname, pathname, tag])
+
     return (
         <>
             <Helmet>

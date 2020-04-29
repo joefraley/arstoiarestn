@@ -14,13 +14,23 @@ import { useLocation } from "react-router-dom"
  * Types
  * -----------------------------------------------------------------------------
  */
-export interface Event {
-    readonly type: "click" | "view" | "error"
-    readonly value: string
-    readonly label?: string
+export interface ClickEvent {
+    readonly type: "click"
+    readonly label: string
+    readonly route?: string
+}
+export interface ViewEvent {
+    readonly type: "view"
+    readonly route: string
+    readonly previous: string
+}
+export interface ErrorEvent {
+    readonly type: "error"
+    readonly label: string
     readonly route?: string
     readonly meta?: string
 }
+export type Event = ClickEvent | ViewEvent | ErrorEvent
 
 /**
  * React Hook `useTagging`
