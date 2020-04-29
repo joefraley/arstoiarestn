@@ -1,1 +1,1 @@
-Feature: Chat with a care guide
+Feature: View accumulators for self

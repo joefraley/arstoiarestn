@@ -1,1 +1,1 @@
-Feature: View tipcards
+Feature: Check network provider search
