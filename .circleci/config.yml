@@ -1,13 +1,21 @@
 version: 2.1
 
 orbs:
-    node: circleci/node@1.1.6
+    artifactory: circleci/artifactory@1.0.0
     js: cambiahealth/janus-javascript@1
     sb: cambiahealth/stack-build@1
+
+executors:
+    node:
+        docker:
+            - image: circle/node:8-browsers
+        environment:
+            ARTIFACTORY_URL: https://janusplatform.jfrog.io/janusplatform
+
 jobs:
     lint-build-test:
         executor:
-            name: node/default
+            name: node
         environment:
             JOBS: 1
         steps:
@@ -26,13 +34,6 @@ jobs:
                   key: npm-packages-{{ checksum "package-lock.json" }}
                   paths:
                       - ~/.cache/npm
-            - run:
-                  name: Install Chrome
-                  command: |
-                      wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-                      sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-                      sudo apt-get update
-                      sudo apt-get install google-chrome-stable
             - run:
                   name: Lint Typescript
                   command: npm run lint
