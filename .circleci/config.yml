@@ -5,7 +5,7 @@ orbs:
     js: cambiahealth/janus-javascript@1
     sb: cambiahealth/stack-build@1
 jobs:
-    lint-and-build:
+    lint-build-test:
         executor:
             name: node/default
         environment:
@@ -33,6 +33,9 @@ jobs:
                   name: Build React
                   command: npm run build:app
             - run:
+                  name: Run Acceptance Tests
+                  command: npm run test:acceptance
+            - run:
                   name: Build Styleguide
                   command: npm run build:storybook
             - persist_to_workspace:
@@ -40,18 +43,6 @@ jobs:
                   paths:
                       - build/
                       - styleguide/
-                      - node_modules/
-    acceptance-tests:
-        executor:
-            name: node/default
-        environment:
-            JOBS: 1
-        steps:
-            - attach_workspace:
-                  at: ./
-            - run:
-                  name: Run Cucumber tests
-                  command: npm run test:acceptance
 
 workflows:
     version: 2
@@ -59,17 +50,13 @@ workflows:
     # Build and Test (all non-development/master branches)
     build-and-test:
         jobs:
-            - lint-and-build:
+            - lint-build-test:
                   context: cambia
                   filters:
                       branches:
                           ignore:
                               - master
                               - development
-            - acceptance-tests:
-                  context: cambia
-                  requires:
-                      - lint-and-build
 
     # Deploy to Janus (only development/master)
     janus-pipeline:
@@ -84,7 +71,7 @@ workflows:
                   context: cambia
                   requires:
                       - sb/preflight
-            - lint-and-build:
+            - lint-build-test:
                   context: cambia
                   requires:
                       - sb/preflight
@@ -92,14 +79,14 @@ workflows:
                   context: cambia
                   requires:
                       - sb/preflight
-                      - lint-and-build
+                      - lint-build-test
             - sb/stack-formation:
                   context: cambia
                   get-s3-contents-from-workspace: true
                   requires:
                       - sb/preflight
                       - sb/normalize
-                      - lint-and-build
+                      - lint-build-test
             - sb/stack-review:
                   context: cambia
                   requires:
