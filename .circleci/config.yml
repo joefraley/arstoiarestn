@@ -38,6 +38,7 @@ jobs:
             - persist_to_workspace:
                   root: ./
                   paths:
+                      - *
                       - build/
                       - styleguide/
     acceptance-tests:
@@ -46,6 +47,8 @@ jobs:
         environment:
             JOBS: 1
         steps:
+            - attach_workspace:
+                  at: ./
             - run:
                   name: Run Cucumber tests
                   command: npm run test:acceptance
