@@ -1,1 +1,1 @@
-Feature: View tipcards
+# Feature: View tipcards
