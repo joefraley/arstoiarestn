@@ -7,7 +7,3 @@ Feature: Example
         Given I am on the home page
         When I click on Settings in the sidebar
         Then I will be on the settings page
-
-    Scenario: This should fail
-        Given this step definition exists
-        Then the scenario should fail
