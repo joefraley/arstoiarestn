@@ -42,7 +42,13 @@ jobs:
                   command: npm run build:app
             - run:
                   name: Run Acceptance Tests
-                  command: npm run test:acceptance
+                  command: |
+                      mkdir -p ~/cucumber
+                      NODE_ENV=test npx cucumber-js --format json:~/cucumber.tests.cucumber
+            - store_test_results:
+                  path: ~/cucumber
+            - store_artifacts:
+                  path: ~/cucumber
             - run:
                   name: Build Styleguide
                   command: npm run build:storybook
