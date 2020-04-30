@@ -44,7 +44,7 @@ jobs:
                   name: Run Acceptance Tests
                   command: |
                       mkdir -p ~/cucumber
-                      NODE_ENV=test npx cucumber-js --format json:~/cucumber.tests.cucumber
+                      NODE_ENV=test npx cucumber-js --format json:~/cucumber/tests.cucumber
             - store_test_results:
                   path: ~/cucumber
             - store_artifacts:
