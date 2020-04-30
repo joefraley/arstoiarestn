@@ -75,11 +75,6 @@ workflows:
                   context: cambia
                   requires:
                       - sb/preflight
-            - acceptance-tests:
-                  context: cambia
-                  requires:
-                      - sb/preflight
-                      - lint-build-test
             - sb/stack-formation:
                   context: cambia
                   get-s3-contents-from-workspace: true
