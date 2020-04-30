@@ -9,5 +9,5 @@ Feature: Example
         Then I will be on the settings page
 
     Scenario: This should fail
-        Given this step definition doesn't exist
+        Given this step definition exists
         Then the scenario should fail
