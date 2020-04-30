@@ -40,12 +40,43 @@ jobs:
                   paths:
                       - build/
                       - styleguide/
+    acceptance-tests:
+        executor:
+            name: node/default
+        environment:
+            JOBS: 1
+        steps:
+            - run:
+                  name: Run Cucumber tests
+                  command: npm run test:acceptance
 
 workflows:
     version: 2
+
+    # Build and Test (all non-development/master branches)
+    build-and-test:
+        jobs:
+            - lint-and-build:
+                  context: cambia
+                  filters:
+                      branches:
+                          ignore:
+                              - master
+                              - development
+            - acceptance-tests:
+                  context: cambia
+                  requires:
+                      - lint-and-build
+
+    # Deploy to Janus (only development/master)
     janus-pipeline:
         jobs:
-            - sb/preflight
+            - sb/preflight:
+                  filters:
+                      branches:
+                          only:
+                              - master
+                              - development
             - sb/normalize:
                   context: cambia
                   requires:
@@ -54,23 +85,26 @@ workflows:
                   context: cambia
                   requires:
                       - sb/preflight
+            - acceptance-tests:
+                  context: cambia
+                  requires:
+                      - sb/preflight
+                      - lint-and-build
             - sb/stack-formation:
                   context: cambia
                   get-s3-contents-from-workspace: true
                   requires:
+                      - sb/preflight
                       - sb/normalize
                       - lint-and-build
             - sb/stack-review:
                   context: cambia
                   requires:
+                      - sb/preflight
                       - sb/normalize
             - sb/publish-artifacts:
                   context: journi-web-app
                   requires:
+                      - sb/preflight
                       - sb/stack-formation
                       - sb/stack-review
-                  filters:
-                      branches:
-                          only:
-                              - master
-                              - development
