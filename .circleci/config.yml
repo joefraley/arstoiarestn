@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-    node: circleci/node@1.1.6
+    node: circleci/node@1.1.6-browsers
     js: cambiahealth/janus-javascript@1
     sb: cambiahealth/stack-build@1
 jobs:
@@ -32,13 +32,6 @@ jobs:
             - run:
                   name: Build React
                   command: npm run build:app
-            - run:
-                  name: Install Chrome
-                  command: |
-                      wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-                      sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-                      sudo apt-get update
-                      sudo apt-get install google-chrome-stable
             - run:
                   name: Run Acceptance Tests
                   command: npm run test:acceptance
