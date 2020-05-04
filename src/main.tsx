@@ -2,12 +2,14 @@
 import React from "react"
 import { Switch, Route, useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
+import Modal from "react-modal"
 import v from "voca"
 import Routes, { ProtectedRoute } from "./routes"
 import { useTagging } from "utils/tagging_utils"
 import "styles/journi.scss"
 
-const Main: React.FC = props => {
+Modal.setAppElement("#root")
+const Main: React.FC = (props) => {
     const location = useLocation()
 
     /**
