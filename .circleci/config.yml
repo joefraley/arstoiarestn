@@ -60,27 +60,9 @@ jobs:
 
 workflows:
     version: 2
-
-    # Build and Test (all non-development/master branches)
-    build-and-test:
-        jobs:
-            - lint-build-test:
-                  context: cambia
-                  filters:
-                      branches:
-                          ignore:
-                              - master
-                              - development
-
-    # Deploy to Janus (only development/master)
     janus-pipeline:
         jobs:
             - sb/preflight:
-                  filters:
-                      branches:
-                          only:
-                              - master
-                              - development
             - sb/normalize:
                   context: cambia
                   requires:
@@ -93,17 +75,19 @@ workflows:
                   context: cambia
                   get-s3-contents-from-workspace: true
                   requires:
-                      - sb/preflight
                       - sb/normalize
                       - lint-build-test
             - sb/stack-review:
                   context: cambia
                   requires:
-                      - sb/preflight
                       - sb/normalize
             - sb/publish-artifacts:
                   context: journi-web-app
                   requires:
-                      - sb/preflight
                       - sb/stack-formation
                       - sb/stack-review
+                  filters:
+                      branches:
+                          only:
+                              - master
+                              - development
