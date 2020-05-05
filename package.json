@@ -99,6 +99,7 @@
     },
     "proxy": "https://charli-app-service.dev.janusplatform.io",
     "prettier": {
+        "arrowParens": "avoid",
         "bracketSpacing": true,
         "printWidth": 80,
         "semi": false,

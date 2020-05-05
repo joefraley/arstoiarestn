@@ -74,6 +74,7 @@ const colors = {
 }
 
 const theme = {
+    colors,
     breakpoints: {
         xs: 0,
         sm: 600,

@@ -108,6 +108,6 @@
         "readonly-keyword": false,
         "readonly-array": false,
         "no-let": true,
-        "no-mixed-interface": true
+        "no-mixed-interface": false
     }
 }
