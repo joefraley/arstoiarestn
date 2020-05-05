@@ -22,10 +22,10 @@ BeforeAll({ timeout: 30 * 10000 }, async () => {
  */
 Before({ timeout: 10 * 10000 }, async () => {
     if (!scope.browser) {
-        const { headless, width, height } = scope.config
-        scope.browser = await scope.driver.launch({ headless })
+        const { headless, width, height, args } = scope.config
+        scope.browser = await scope.driver.launch({ headless, args })
         scope.context.page = await scope.browser.newPage()
-        scope.context.page.on("console", msg =>
+        scope.context.page.on("console", (msg) =>
             console.log(`
 Bowser console:
 

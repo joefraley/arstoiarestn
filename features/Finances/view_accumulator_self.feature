@@ -1,1 +1,1 @@
-Feature: View accumulators for self
+# Feature: View accumulators for self

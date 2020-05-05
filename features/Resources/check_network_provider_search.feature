@@ -1,1 +1,1 @@
-Feature: Check network provider search
+# Feature: Check network provider search
