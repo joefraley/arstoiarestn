@@ -30,6 +30,16 @@ export const Default = () => {
         <Wrap>
             <LightWrap>
                 <Example>
+                    <Label>Variants</Label>
+                    <Wrap>
+                        <Copy variant="default">Default</Copy>
+                        <Copy variant="secondary">Secondary</Copy>
+                        <Copy variant="disabled">Disabled</Copy>
+                        <Copy variant="link">Link</Copy>
+                        <Copy variant="error">Error</Copy>
+                    </Wrap>
+                </Example>
+                <Example>
                     <Label>Copy</Label>
                     <Copy noWrap={true}>{sample}</Copy>
                 </Example>
@@ -87,6 +97,26 @@ export const Default = () => {
                 </Example>
             </LightWrap>
             <DarkWrap>
+                <Example>
+                    <Label inverted={true}>Variants</Label>
+                    <Wrap>
+                        <Copy inverted={true} variant="default">
+                            Default
+                        </Copy>
+                        <Copy inverted={true} variant="secondary">
+                            Secondary
+                        </Copy>
+                        <Copy inverted={true} variant="disabled">
+                            Disabled
+                        </Copy>
+                        <Copy inverted={true} variant="link">
+                            Link
+                        </Copy>
+                        <Copy inverted={true} variant="error">
+                            Error
+                        </Copy>
+                    </Wrap>
+                </Example>
                 <Example>
                     <Label inverted={true}>Copy</Label>
                     <Copy inverted={true} noWrap={true}>
