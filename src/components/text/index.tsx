@@ -10,7 +10,8 @@ import styled, { css } from "styled-components/macro"
  */
 interface Props {
     readonly inverted?: boolean
-    readonly variant?: "primary" | "secondary" | "disabled" | "link"
+    readonly variant?: "primary" | "secondary" | "disabled" | "link" | "error"
+    readonly size?: "small" | "medium" | "large"
     readonly noWrap?: boolean
 }
 
@@ -21,8 +22,8 @@ interface Props {
 export const Body = css<Props>`
     display: block;
     font-family: ${props => props.theme.typography.fontFamily};
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: ${props => props.theme.typography.fontWeightRegular};
     color: ${props =>
         props.inverted
             ? props.theme.colors.white
@@ -43,12 +44,25 @@ export const Heading = css<Props>`
  * Basic
  * ----------------------------------------------------------------------------
  */
-export const P = styled.p<Props>`
+export const Copy = styled.p<Props>`
     ${Body}
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 0.07px;
-    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.06px;
+    ${props =>
+        props.size === "small" &&
+        css`
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.05px;
+        `}
+    ${props =>
+        props.size === "large" &&
+        css`
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 0.07px;
+        `}
 `
 export const Caption = styled.em<Props>`
     ${Body}
@@ -87,43 +101,68 @@ export const Subtitle = styled.p<Props>`
 `
 export const H1 = styled.h1<Props>`
     ${Heading}
-    font-weight: 300;
+    font-weight: ${props => props.theme.typography.fontWeightLight};
     font-size: 52px;
     line-height: 62px;
     letter-spacing: 0.19px;
+    @media (max-width: ${props => props.theme.breakpoints.sm}px) {
+        font-size: 44px;
+        line-height: 46px;
+        letter-spacing: 0.16px;
+    }
 `
 export const H2 = styled.h2<Props>`
     ${Heading}
-    font-weight: 300;
+    font-weight: ${props => props.theme.typography.fontWeightLight};
     font-size: 44px;
     line-height: 52px;
     letter-spacing: 0.16px;
+    @media (max-width: ${props => props.theme.breakpoints.sm}px) {
+        font-size: 34px;
+        line-height: 41px;
+        letter-spacing: 0.12px;
+    }
 `
 export const H3 = styled.h3<Props>`
     ${Heading}
-    font-weight: 300;
+    font-weight: ${props => props.theme.typography.fontWeightLight};
     font-size: 40px;
     line-height: 47px;
     letter-spacing: 0.16px;
+    @media (max-width: ${props => props.theme.breakpoints.sm}px) {
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.09px;
+    }
 `
 export const H4 = styled.h4<Props>`
     ${Heading}
-    font-weight: 300;
+    font-weight: ${props => props.theme.typography.fontWeightLight};
     font-size: 34px;
     line-height: 41px;
     letter-spacing: 0.15px;
+    @media (max-width: ${props => props.theme.breakpoints.sm}px) {
+        font-size: 21px;
+        line-height: 25px;
+        letter-spacing: 0.08px;
+    }
 `
 export const H5 = styled.h5<Props>`
     ${Heading}
-    font-weight: 500;
+    font-weight: ${props => props.theme.typography.fontWeightMedium};
     font-size: 15px;
     line-height: 16px;
     letter-spacing: 2.14px;
     text-transform: uppercase;
+    @media (max-width: ${props => props.theme.breakpoints.sm}px) {
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 2px;
+    }
 `
 export const H6 = styled.h6<Props>`
     ${Heading}
-    font-weight: 500;
+    font-weight: ${props => props.theme.typography.fontWeightMedium};
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0.06px;

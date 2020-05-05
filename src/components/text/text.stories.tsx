@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components/macro"
-import { P, Caption, Label } from "./index"
+import { Copy, Caption, Label } from "./index"
 import { Title, Subtitle } from "./index"
 import { H1, H2, H3, H4, H5, H6 } from "./index"
 
@@ -30,8 +30,20 @@ export const Default = () => {
         <Wrap>
             <LightWrap>
                 <Example>
-                    <Label>P</Label>
-                    <P noWrap={true}>{sample}</P>
+                    <Label>Copy</Label>
+                    <Copy noWrap={true}>{sample}</Copy>
+                </Example>
+                <Example>
+                    <Label>Copy (large)</Label>
+                    <Copy noWrap={true} size="large">
+                        {sample}
+                    </Copy>
+                </Example>
+                <Example>
+                    <Label>Copy (small)</Label>
+                    <Copy noWrap={true} size="small">
+                        {sample}
+                    </Copy>
                 </Example>
                 <Example>
                     <Label>Caption</Label>
@@ -76,10 +88,22 @@ export const Default = () => {
             </LightWrap>
             <DarkWrap>
                 <Example>
-                    <Label inverted={true}>P</Label>
-                    <P inverted={true} noWrap={true}>
+                    <Label inverted={true}>Copy</Label>
+                    <Copy inverted={true} noWrap={true}>
                         {sample}
-                    </P>
+                    </Copy>
+                </Example>
+                <Example>
+                    <Label inverted={true}>Copy (large)</Label>
+                    <Copy inverted={true} noWrap={true} size="large">
+                        {sample}
+                    </Copy>
+                </Example>
+                <Example>
+                    <Label inverted={true}>Copy (small)</Label>
+                    <Copy inverted={true} noWrap={true} size="small">
+                        {sample}
+                    </Copy>
                 </Example>
                 <Example>
                     <Label inverted={true}>Caption</Label>
