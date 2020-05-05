@@ -6,22 +6,26 @@ Feature: sign in
 
   These scenarios use the "Morticia Addams" persona. See `personas.feature` for more info.
 
-  Scenario: user can sign in
+  Scenario: correct credentials
     When Morticia tries to sign in
-    Then Morticia lands on the home page
+    Then she lands on the home page
 
-  Scenario: user tries to sign in with invalid password
-  # Messages are listed in Sketch
+  Scenario: invalid password
     When Morticia tries to sign in with an invalid password
-    Then Morticia sees an error message saying credentials are invalid
+    Then she sees an error message saying credentials are invalid
 
-  Scenario: user tries to sign in with unregistered email
-  # Messages are listed in Sketch
+  Scenario: unregistered email
     When Morticia tries to sign in with an unregistered email
-    Then Morticia sees an error message saying credentials are invalid
+    Then she sees an error message saying credentials are invalid
 
-  Scenario: user tries to sign in with malformed email
-  # Messages are listed in Sketch
+  Scenario: malformed email
     When Morticia tries to sign in with malformed email
-    Then Morticia sees an error message saying the email is malformed
+    Then she sees an error message saying the email is malformed
     And the sign in button is disabled
+
+  Scenario: external link
+    Given Morticia is not logged in
+    When she clicks on a link to the "/settings" page
+    Then she is redirected to the "/login" page
+    And she logs in successfully
+    Then she is redirected to the "/settings" page
