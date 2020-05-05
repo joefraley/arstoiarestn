@@ -62,7 +62,7 @@ workflows:
     version: 2
     janus-pipeline:
         jobs:
-            - sb/preflight:
+            - sb/preflight
             - sb/normalize:
                   context: cambia
                   requires:
