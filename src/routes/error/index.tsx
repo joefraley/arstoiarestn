@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 
 const StyledContainer = styled.div`
     align-items: center;
-    background: ${({ theme }) => theme.palette.grey[100]};
+    background: ${({ theme }) => theme.palette.gray[100]};
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(220px, 0.5fr));
     justify-content: center;
