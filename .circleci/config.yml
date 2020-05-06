@@ -72,6 +72,10 @@ workflows:
                   requires:
                       - sb/preflight
             - sb/stack-formation:
+                  executor:
+                    name: sb/stack-formation
+                    tag: cloudfront-default-aliases
+                  form-with-lambda: false
                   context: cambia
                   get-s3-contents-from-workspace: true
                   requires:
