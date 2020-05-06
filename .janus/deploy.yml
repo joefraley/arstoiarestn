@@ -12,7 +12,7 @@ resources_I_provision:
         origin:
           bucket_name: master
       #vanity_alias: journi-web-app # an additional DNS alias to <vanity_alias>.<env>.janusplatform.io
-      aliases_from_parameter: false # if true reads DNS aliases from SSM, but does not provision DNS :/
+      aliases_from_parameter: true # if true reads DNS aliases from SSM, but does not provision DNS :/
       certificate_from_parameter: true # reads the certificate from SSM, so that it can be generated with custom aliases
       default_root_object: index.html
       custom_error_responses:
